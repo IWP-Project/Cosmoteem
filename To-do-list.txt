@@ -17,7 +17,7 @@ Together known as Full-Stack.
        6. https://github.com/thedaviddias/Resources-Front-End-Beginner (more details here).
 
 
-//Lets stick to front end for now and not delve too much into abck end, lets go step by step.
+//Lets stick to front end for now and not delve too much into back end, lets go step by step.
 2. Back-end:
    Tools you need:
        1.React.
