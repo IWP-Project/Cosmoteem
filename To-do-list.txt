@@ -1,0 +1,35 @@
+//BASIC INFORMATION
+
+Website Development Roadmap:
+1. Front-end 
+2. Back-end
+
+Together known as Full-Stack.
+
+
+1. Front-end:
+   Tools you need:
+       1.*HTML* (HTML5 tbp)
+       2.*CSS* (CSS3 tbp)
+       3.*JavaScript* (We can either learn this or *Typescript*, which is a superset of JS, but there is varied opinion on whether you should start with Typescript or Javascript as a beginner)
+       4.*Git* (We need to know Git since we need version control in our Project, meaning we integrate features on a base version and keep doing that and store each version along the way on git hub)
+       5.Obviously we need a text/code editor like *VScode* (lets stick to VCcode to have uniformity, since Anurag and Ria have it).
+       6. https://github.com/thedaviddias/Resources-Front-End-Beginner (more details here).
+
+
+//Lets stick to front end for now and not delve too much into abck end, lets go step by step.
+2. Back-end:
+   Tools you need:
+       1.React.
+       2.MongoDb or other database.
+       
+       
+*FOR REVIEW 1*:
+  She is expecting a prototype so:
+      
+    TO - DO List:
+      1. Landing Page with HTML5 and CSS3.
+      2. Login and Sign-up Page with HTML5 and CSS3.
+      3. Integrate User Interaction on website with Javascript.(Beginner stuff for now)
+      4. Make a PPT.
+      5. Present.
