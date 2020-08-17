@@ -33,4 +33,3 @@ Together known as Full-Stack.
       3. Integrate User Interaction on website with Javascript.(Beginner stuff for now)
       4. Make a PPT.
       5. Present.
-      SCOREE
