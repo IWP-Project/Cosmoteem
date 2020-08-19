@@ -155,46 +155,46 @@ body {
     background-color: WHITE;
   }
   
-.carousel2 {
+.carouselPhotoGallery {
     position:relative;
     width:400px;
     border:10px solid white;
     margin:20px auto;
     box-shadow:0px 0px 40px #000;
   }
-.carousel2 > img {
+.carouselPhotoGallery > img {
     display:none;
     width:100%;
   }
-.carousel2 > input {
+.carouselPhotoGallery > input {
     position:absolute;
     left:-9999px;
   }
-.carousel2 > input:checked + label + img {
+.carouselPhotoGallery > input:checked + label + img {
     display:block;
   }
   
-.carousel2 > label,
-.carousel2 > input:checked ~ label ~ label ~ label ~ label {
+.carouselPhotoGallery > label,
+.carouselPhotoGallery > input:checked ~ label ~ label ~ label ~ label {
     display:none;
   }
-.carousel2 > input:checked + label {
+.carouselPhotoGallery > input:checked + label {
     display:block;
     left:0;
   }
-.carousel2 > input:checked ~ label ~ label ~ label {
+.carouselPhotoGallery > input:checked ~ label ~ label ~ label {
     display:block;
     right:0;
   }
   
-.carousel2 > label {
+.carouselPhotoGallery > label {
     position:absolute;
     top:0;
     width:25%;
     height:100%;
     visibility:hidden;
   }
-.carousel2 > label:before {
+.carouselPhotoGallery > label:before {
     content:'';
     display:block;
     position:absolute;
@@ -202,7 +202,7 @@ body {
     height:100%;
     visibility:visible;
   }
-.carousel2 > label:after {
+.carouselPhotoGallery > label:after {
     display:block;
     position:absolute;
     top:50%;
@@ -221,15 +221,15 @@ body {
     border-radius:20px;
     box-shadow:0 3px 4px black;
   }
-.carousel2 > label:hover:after {
+.carouselPhotoGallery > label:hover:after {
     visibility:visible;
   }
   
-.carousel2 > input:checked + label:after {
+.carouselPhotoGallery > input:checked + label:after {
     left:0;
     content:'\00AB';
   }
-.carousel2 > input:checked ~ label ~ label ~ label:after {
+.carouselPhotoGallery > input:checked ~ label ~ label ~ label:after {
     right:0;
     content:'\00BB';
 }
