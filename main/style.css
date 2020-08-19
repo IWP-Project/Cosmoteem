@@ -9,6 +9,7 @@ html, body{
 .navbar {
     padding: .8rem;
 }
+
 .navbar-nav li {
     padding-right:20px;
 }
@@ -17,6 +18,7 @@ html, body{
     height:100%;
     width: 100%;
 }
+
 .carousel-caption{
     position: absolute;
     top:50%;
@@ -37,13 +39,14 @@ html, body{
 .padding {
     padding-bottom: 2rem;
 }
+
 .welcome {
     width: 75%;
     margin: 0 auto;
     padding-top: 2rem;
 
 }
- 
+
 .welcome hr {
     border-top: 2px solid #b4b4b4;
     width: 95%;
@@ -82,17 +85,10 @@ hr.light {
     width: 75%;
     margin-top: .8rem;
     margin-bottom: 1rem;
-
 }
 footer a{
     color: #d5d5d5;
 }
-hr.light-100 {
-    border-top: 1px solid #d5d5d5;
-    width: 75%;
-    margin-top: .8rem;
-    margin-bottom: 1rem;
-
 
 
 
@@ -149,52 +145,51 @@ figure {
 [class*="col-"] {
     padding: 1rem;
 }
-
-
+*/
 body {
-    background-color: WHITE;
+    background-color:white;
   }
-  
-.carouselPhotoGallery {
+ 
+  .carouselPhotoGallery {
     position:relative;
-    width:400px;
+    width:650px;
     border:10px solid white;
     margin:20px auto;
     box-shadow:0px 0px 40px #000;
   }
-.carouselPhotoGallery > img {
+  .carouselPhotoGallery > img {
     display:none;
     width:100%;
   }
-.carouselPhotoGallery > input {
+  .carouselPhotoGallery > input {
     position:absolute;
     left:-9999px;
   }
-.carouselPhotoGallery > input:checked + label + img {
+  .carouselPhotoGallery > input:checked + label + img {
     display:block;
   }
   
-.carouselPhotoGallery > label,
-.carouselPhotoGallery > input:checked ~ label ~ label ~ label ~ label {
+  .carouselPhotoGallery > label,
+  .carouselPhotoGallery > input:checked ~ label ~ label ~ label ~ label {
     display:none;
   }
-.carouselPhotoGallery > input:checked + label {
+  .carouselPhotoGallery > input:checked + label {
     display:block;
     left:0;
   }
-.carouselPhotoGallery > input:checked ~ label ~ label ~ label {
+  .carouselPhotoGallery > input:checked ~ label ~ label ~ label {
     display:block;
     right:0;
   }
   
-.carouselPhotoGallery > label {
+  .carouselPhotoGallery > label {
     position:absolute;
     top:0;
     width:25%;
     height:100%;
     visibility:hidden;
   }
-.carouselPhotoGallery > label:before {
+  .carouselPhotoGallery > label:before {
     content:'';
     display:block;
     position:absolute;
@@ -202,7 +197,7 @@ body {
     height:100%;
     visibility:visible;
   }
-.carouselPhotoGallery > label:after {
+  .carouselPhotoGallery > label:after {
     display:block;
     position:absolute;
     top:50%;
@@ -221,15 +216,15 @@ body {
     border-radius:20px;
     box-shadow:0 3px 4px black;
   }
-.carouselPhotoGallery > label:hover:after {
+  .carouselPhotoGallery > label:hover:after {
     visibility:visible;
   }
   
-.carouselPhotoGallery > input:checked + label:after {
+  .carouselPhotoGallery > input:checked + label:after {
     left:0;
     content:'\00AB';
   }
-.carouselPhotoGallery > input:checked ~ label ~ label ~ label:after {
+  .carouselPhotoGallery > input:checked ~ label ~ label ~ label:after {
     right:0;
     content:'\00BB';
 }
