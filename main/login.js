@@ -8,12 +8,21 @@ loginForm.addEventListener('submit',onSubmit);
 
 function onSubmit(e){
     e.preventDefault();
-
+    
+    //If fields are left empty: error
     if(userName.value === '' || userPassWord.value === ''){
-        alert('Please enter valid Username and Password');
+        msg.classList.add('error');
+        msg.innerText = 'Please Enter A VALID input in ALL The Fields!';
+        setTimeout(() => msg.remove(), 3000);
     } else {
-        const userCheck = [userName.value , userPassWord.value];
-        console.log(userCheck);
+        //Store the inputs to Process
+        const userCheck = document.createElement('li');
+        //Appending Inputs to an Element IN corresponding HTML.
+        userCheck.appendChild(document.createTextNode(`${userName.value}:${userPassWord.value}`));
+        userList.appendChild(userCheck);
+        //Clearing Input Field
+        userName.value = '';
+        userPassWord.value = '';
     }
 
 }
