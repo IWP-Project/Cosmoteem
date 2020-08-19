@@ -12,6 +12,8 @@ function onSubmit(e){
     if(userName.value === '' || userPassWord.value === ''){
         alert('Please enter valid Username and Password');
     } else {
-        const userli = document.createElement('li');
+        const userCheck = [userName.value , userPassWord.value];
+        console.log(userCheck);
     }
+
 }
