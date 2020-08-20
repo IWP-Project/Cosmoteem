@@ -6,6 +6,33 @@ html, body{
     font-family: 'Poppins', sans-serif;
     color: #222;
 }
+h1 {
+  text-align: center;
+}
+#para1{
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+p.lead{
+  padding-left :100px;
+  padding-right :100px;
+  padding-top :30px;
+  padding-bottom :40px;
+}
+
+img.toplogo{
+  width:250px; height:60px;
+}
+
+.jumbotron {
+    padding: 1rem;
+    border-radius: 1rem;
+    padding-left: 1rem;
+    text-align: center;
+}
+.col-12{
+  text-align: center;
+}
 .navbar {
     padding: .8rem;
 }
@@ -28,6 +55,7 @@ html, body{
     font-size: 500%;
     text-shadow: 1px 1px 1px #000;
 }
+<<<<<<< HEAD
 .quote{
   padding: 1rem;
     border-radius: 0;
@@ -41,6 +69,8 @@ html, body{
     padding-right: -12rem;
     padding-left: 14rem;
 }
+=======
+>>>>>>> da18119664c64c66f466a9cd6ef33b3175c85a50
 
 .padding {
     padding-bottom: 2rem;
@@ -234,6 +264,15 @@ body {
     right:0;
     content:'\00BB';
 }
+
+.errorLogin {
+  background: orangered;
+  color: #fff;
+  padding: 5px;
+  margin: 5px;
+}
+
+
 
 /*
 Extra small (xs) devices (portrait phones, less than 576px)
