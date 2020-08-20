@@ -28,12 +28,18 @@ html, body{
     font-size: 500%;
     text-shadow: 1px 1px 1px #000;
 }
-
+.quote{
+  padding: 1rem;
+    border-radius: 0;
+    text-align: center;
+    background-color: silver;
+}
 .jumbotron {
     padding: 1rem;
     border-radius: 0;
-    text-align: right;
-    padding-left: 12rem;
+    text-align: center;
+    padding-right: -12rem;
+    padding-left: 14rem;
 }
 
 .padding {
