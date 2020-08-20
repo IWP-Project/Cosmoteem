@@ -1,5 +1,5 @@
-const userName = document.querySelector('#username');
-const userPassWord = document.querySelector('#password');
+const userName = document.querySelector('#userName');
+const userPassWord = document.querySelector('#passWord');
 const loginForm = document.querySelector('#login-form');
 const userList = document.querySelector('#users');
 const msg = document.querySelector('.msg');
