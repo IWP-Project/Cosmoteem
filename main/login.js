@@ -11,7 +11,7 @@ function onSubmit(e){
     
     //If fields are left empty: error
     if(userName.value === '' || userPassWord.value === ''){
-        msg.classList.add('error');
+        msg.classList.add('errorLogin');
         msg.innerText = 'Please Enter A VALID input in ALL The Fields!';
         setTimeout(() => msg.remove(), 3000);
     } else {
