@@ -48,8 +48,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">STORE</a>
                     </li>
-                    <a class="navbar-brand" href="login.html"><img src="userlogo.png"
-                            style="width:60px; height:40px"></a>
+                    <a class="navbar-brand" href="login.html"><img src="userlogo.png" style="width:60px; height:40px"></a>
                 </ul>
             </div>
         </div>
@@ -60,28 +59,25 @@
     <br>
     <hr>
     <!--Login Form-->
-    <section class="container">
-        <form id="login-form" action="" method="POST">
+    <section class="container form1">
+        <form action="" method="POST">
             <h2>Log-In to access your Space!</h2>
             <div class="msg"></div>
-            <div>
-                <label for="username">Username:</label>
+            <div class="group1">
+                <label for="username">Username</label>
                 <input type="text" id="userName" placeholder="username">
             </div>
-            <div>
-                <label for="password">Password:</label>
-                <input type="text" id="passWord" placeholder="password">
+            <div class="group1">
+                <label for="password">Password</label>
+                <input type="password" id="passWord" placeholder="password">
             </div>
-            <input class="btn" type="submit" value="Submit">
+            <div class="captcha">
+
+            </div>
+            <div class="submit-btn">
+                <input class="btn" type="submit" value="Submit">
+            </div>
         </form>
-
-        <ul id="users"></ul>
-
-        <ul class="items">
-        <li class="item">Item 1</li>
-        <li class="item">Item 2</li>
-        <li class="item">Item 3</li>
-      </ul>
     </section>
 
     <!--footer-->
@@ -118,15 +114,9 @@
             </div>
         </div>
     </footer>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
     <script src="login.js"></script>
 </body>
 
