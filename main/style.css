@@ -21,17 +21,19 @@ section.form1 {
 }
 
 div.group1 {
+    display: block;
+    justify-content: center;
     padding: 0px 72px 0px 72px;
 }
 
 div.group1 label {
-    padding: 10px 10px 0px 0px;
     display: block;
+    padding: 10px 0px 0px 0px;
 }
 
 .group1 input[type="text"],
 input[type="password"] {
-    width: 85%;
+    width: 100%;
     padding: 5px;
     margin-bottom: 15px;
 }
