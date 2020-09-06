@@ -8,7 +8,18 @@ body {
 }
 
 h1 {
+    padding: 72px 0px 0px 0px;
     text-align: center;
+}
+
+.fcontainer {
+    display: flex;
+    align-items: flex-end;
+}
+
+.felement {
+    flex: 1;
+    border: 0px #ccc solid;
 }
 
 section.form1 {
@@ -45,6 +56,12 @@ input[type="submit"] {
     padding: 50px;
     border-radius: 100%;
     text-align: center;
+}
+
+div.form1-link {
+    margin: auto;
+    position: inline-flex;
+    justify-content: center;
 }
 
 div.submit-btn {
