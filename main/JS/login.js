@@ -4,13 +4,13 @@ const loginForm = document.querySelector('#login-form');
 const userList = document.querySelector('#users');
 const msg = document.querySelector('.msg');
 
-loginForm.addEventListener('submit',onSubmit);
+loginForm.addEventListener('submit', onSubmit);
 
-function onSubmit(e){
+function onSubmit(e) {
     e.preventDefault();
-    
+
     //If fields are left empty: error
-    if(userName.value === '' || userPassWord.value === ''){
+    if (userName.value === '' || userPassWord.value === '') {
         msg.classList.add('errorLogin');
         msg.innerText = 'Please Enter A VALID input in ALL The Fields!';
         setTimeout(() => msg.remove(), 3000);
