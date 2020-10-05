@@ -27,8 +27,14 @@ router.get(regexSignup, (req, res) => res.redirect('/sign-up'));
 
 
 router.get('/photogallery', (req, res) => res.render('gallery'));
+
 //handling arbitary routes
 router.get(regexGallery, (req, res) => res.redirect('/photogallery'));
+
+router.get('/store', (req, res) => res.render('store'));
+router.get('/topnews', (req, res) => res.render('topnews'));
+router.get('/forums', (req, res) => res.render('forums'));
+
 
 //handling arbitary routes
 //router.get(regexDashboard, (req, res) => res.redirect('/dashboard:id'));
@@ -71,6 +77,9 @@ router.post('/dashboard/:id', (req, res) => {
         res.status(404).render('404');
     }
 });
+
+
+
 
 
 
