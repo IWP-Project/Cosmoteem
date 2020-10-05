@@ -1,1 +1,23 @@
-<h1> Welcome {{usersname}} </h1>
+<h1> Welcome {{usersusername}} </h1>
+
+<hr>
+<h3 class="mt-4">List of your Recently Visited Threads!</h3>
+<ul class="mt-4">
+    {{#each userthreads}}
+        <li class="">
+            <a href="#">{{this}}</a>
+        </li>
+    {{/each}}
+</ul>
+
+<hr>
+<h3 class="mt-4">Most Liked Threads in the Community!</h3>
+<ul class="mt-4">
+    {{#each hotposts}}
+        <li class="">
+            <div>
+            <a href="#">{{this}}</a>
+            </div>
+        </li>
+    {{/each}}
+</ul>
