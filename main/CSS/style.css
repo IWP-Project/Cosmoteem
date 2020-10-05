@@ -322,6 +322,17 @@ figure {
     background-color: white;
 }
 
+.gallerybg {
+    background-color: black;
+}
+
+.bodybackg {
+    background-image: url('../images/signup.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
 .carouselPhotoGallery {
     position: relative;
     width: 800px;
