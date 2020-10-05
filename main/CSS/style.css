@@ -55,6 +55,26 @@ div.group1 {
     padding: 0px 72px 0px 72px;
 }
 
+
+/* .galleri {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+} */
+
+
+/* .galleryimages{
+    width: 600px;
+    height: 400px;
+    margin: 10px;
+    transition: all 1s;
+} */
+
+
+/* .galleryimages:hover {
+    transform: scale(1.1);
+} */
+
 div.group1 label {
     display: block;
     padding: 10px 0px 0px 0px;
@@ -104,6 +124,7 @@ div.submit-btn {
     margin: auto;
     justify-content: center;
     margin-bottom: 20px;
+    margin-right: 150px;
 }
 
 input[type="submit"]:hover {
@@ -305,10 +326,23 @@ figure {
     background-color: white;
 }
 
+.gallerybg {
+    background-color: black;
+}
+
+.bodybackg {
+    background-image: url('../images/signup.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
 .carouselPhotoGallery {
     position: relative;
-    width: 650px;
+    width: 800px;
+    height: 500px;
     border: 10px solid white;
+    padding: 10px;
     margin: 20px auto;
     box-shadow: 0px 0px 40px #000;
 }

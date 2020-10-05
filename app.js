@@ -22,7 +22,7 @@ app.use(express.static(__dirname + '/public'));
 app.use('/', require('./routes/index'));
 
 //Routes for user pages
-app.use('/users', require('./routes/users'));
+//app.use('/users', require('./routes/users'));
 
 //Route for Sign-Up and Login API
 app.use('/api/users', require('./routes/api/users'));
