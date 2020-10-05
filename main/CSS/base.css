@@ -572,8 +572,8 @@ pre code {
     width: 100%;
     padding-right: 15px;
     padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto
+    margin-right: 100px;
+    margin-left: 100px;
 }
 
 @media (min-width:576px) {
@@ -6737,14 +6737,16 @@ a.close.disabled {
 }
 
 .carousel.pointer-event {
+    margin-left: 100px;
     -ms-touch-action: pan-y;
     touch-action: pan-y
 }
 
 .carousel-inner {
     position: relative;
+    max-height: 50%;
     width: 100%;
-    overflow: hidden
+    overflow: hidden;
 }
 
 .carousel-inner::after {
