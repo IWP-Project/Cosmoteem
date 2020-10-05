@@ -1,25 +1,27 @@
-<header>
+<div class="headingtop">
     <h1>Welcome Back, Bitgazer!</h1>
-</header>
-<br>
+</div>
+
 <hr>
 <!--Login Form-->
 <section class="container form1">
     <form action="" method="POST">
-        <h2>Log-In to access your Space!</h2>
-        <div class="msg"></div>
-        <div class="group1">
-            <label for="username">Username</label>
-            <input type="text" id="userName" placeholder="username">
+        <div class="felement">
+            <h2>Log-In to access your Space!</h2>
         </div>
-        <div class="group1">
+        <div class="msg"></div>
+        <div class="group2">
+            <label for="username">Username</label>
+            <input type="text" name="username" placeholder="username">
+        </div>
+        <div class="group2">
             <label for="password">Password</label>
-            <input type="password" id="passWord" placeholder="password">
+            <input type="password" name="password" placeholder="password">
         </div>
         <div class="captcha">
 
         </div>
-        <div class="group1 form1-link">
+        <div class="group2 form1-link">
             <a href="sign-up">First time here? Click here.</a>
         </div>
         <div class="submit-btn">
@@ -28,4 +30,4 @@
     </form>
 </section>
 
-<script src="../JS/login.js"></script>
+<script src="/JS/login.js"></script>
