@@ -1,0 +1,36 @@
+{
+    "name": "iwp-project",
+    "version": "1.0.0",
+    "description": "Astronomy - Forum based Web App",
+    "main": "app.js",
+    "scripts": {
+        "start": "node app.js",
+        "dev": "nodemon app.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/AdamWarlord/IWP-Project.git"
+    },
+    "author": "Anurag Parcha, Sanjana Mishra and Sneha Prem Kiron",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/AdamWarlord/IWP-Project/issues"
+    },
+    "homepage": "https://github.com/AdamWarlord/IWP-Project#readme",
+    "dependencies": {
+        "bcryptjs": "^2.4.3",
+        "connect-flash": "^0.1.1",
+        "ejs": "^3.1.5",
+        "express": "^4.17.1",
+        "express-ejs-layouts": "^2.5.0",
+        "express-handlebars": "^5.1.0",
+        "express-session": "^1.17.1",
+        "mongoose": "^5.10.7",
+        "passport": "^0.4.1",
+        "passport-local": "^1.0.0",
+        "uuid": "^8.3.0"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.4"
+    }
+}
