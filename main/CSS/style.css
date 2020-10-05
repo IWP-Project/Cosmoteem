@@ -8,33 +8,50 @@ body {
     color: #222;
 }
 
+.homebody {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
 h1 {
     padding: 72px 0px 0px 0px;
     text-align: center;
 }
 
 .fcontainer {
-    display: flex;
-    align-items: flex-end;
+    color: ghostwhite;
+    /* display: flex; */
+    width: 500px;
+    /* align-items: center; */
+    text-align: center;
 }
 
 .felement {
-    flex: 1;
+    margin-left: 120px;
+    color: ghostwhite;
+    /* flex: 1; */
     border: 0px #ccc solid;
+    text-align: center;
 }
 
 section.form1 {
-    position: relative;
-    border: 3px solid #ccc;
+    align-items: center;
+    /* border: 3px solid #ccc; */
+    background-color: rgba(0, 0, 0, 0.5);
     box-sizing: border-box;
     margin: auto;
-    margin-bottom: 15px;
-    background-color: snow;
+    width: 800px;
+    margin-bottom: 100px;
+    /* background-color: snow; */
 }
 
 div.group1 {
+    color: ghostwhite;
     display: block;
+    margin-left: 120px;
+    width: 500px;
     justify-content: center;
+    align-items: center;
     padding: 0px 72px 0px 72px;
 }
 
@@ -51,11 +68,27 @@ input[type="password"] {
 }
 
 input[type="submit"] {
-    background-color: goldenrod;
+    background-color: rgb(102, 233, 215);
     color: black;
     text-decoration: none;
-    padding: 50px;
-    border-radius: 100%;
+    margin: 20px;
+    margin-left: 150px;
+    margin-top: 30px;
+    /* padding: 50px; */
+    border-radius: 10px;
+    text-align: center;
+}
+
+input[type="reset"] {
+    background-color: rgb(102, 233, 215);
+    color: black;
+    text-decoration: none;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    margin-right: 200px;
+    /* padding: 10px; */
+    border-radius: 10px;
     text-align: center;
 }
 
@@ -74,7 +107,12 @@ div.submit-btn {
 }
 
 input[type="submit"]:hover {
-    background-color: gold;
+    background-color: grey;
+    color: white;
+}
+
+input[type="reset"]:hover {
+    background-color: grey;
     color: white;
 }
 
@@ -177,6 +215,8 @@ img.toplogo {
 }
 
 footer {
+    flex-shrink: 0;
+    bottom: 0;
     background-color: #3f3f3f;
     color: #d5d5d5;
     padding-top: 2rem;
