@@ -613,8 +613,8 @@ pre code {
 
 .container-fluid {
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: auto;
+    padding-left: auto;
     margin-right: auto;
     margin-left: auto
 }

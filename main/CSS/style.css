@@ -54,22 +54,25 @@ div.group1 {
     padding: 0px 72px 0px 72px;
 }
 
-.galleri {
+
+/* .galleri {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-}
+} */
 
-img {
+
+/* .galleryimages{
     width: 600px;
     height: 400px;
     margin: 10px;
     transition: all 1s;
-}
+} */
 
-img:hover {
+
+/* .galleryimages:hover {
     transform: scale(1.1);
-}
+} */
 
 div.group1 label {
     display: block;
