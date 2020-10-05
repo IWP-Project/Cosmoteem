@@ -1,7 +1,6 @@
 <h1> Welcome {{usersusername}} </h1>
 
 <hr>
-
 <h3 class="mt-4">List of your Recently Visited Threads!</h3>
 <ul class="mt-4">
     {{#each userthreads}}
@@ -12,12 +11,13 @@
 </ul>
 
 <hr>
-
-<h3 class="mt-4">HOT Threads</h3>
+<h3 class="mt-4">Most Liked Threads in the Community!</h3>
 <ul class="mt-4">
     {{#each hotposts}}
         <li class="">
+            <div>
             <a href="#">{{this}}</a>
+            </div>
         </li>
     {{/each}}
 </ul>
