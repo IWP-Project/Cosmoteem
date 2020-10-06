@@ -2,14 +2,18 @@
     <h1>Welcome Back, Bitgazer!</h1>
 </div>
 
+
+
 <hr>
 <!--Login Form-->
 <section class="container form1">
-    <form action="" method="POST">
+    <form action="/login" method="POST">
         <div class="felement">
             <h2>Log-In to access your Space!</h2>
         </div>
-        <div class="msg"></div>
+        <div class="msg">
+            {{ error }}
+        </div>
         <div class="group2">
             <label for="username">Username</label>
             <input type="text" name="username" placeholder="username">
