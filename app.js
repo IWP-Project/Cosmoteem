@@ -27,8 +27,6 @@ app.use('/', require('./routes/index'));
 //Route for Sign-Up and Login API
 app.use('/api/users', require('./routes/api/users'));
 
-// HomePage Route
-app.get('/', (req, res) => res.render('home'));
 
 // Define Port
 const PORT = process.env.PORT || 5000;
