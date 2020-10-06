@@ -1,23 +1,33 @@
-<h1> Welcome {{usersusername}} </h1>
 
+<div class="homebody"><h1> Welcome {{usersusername}} </h1></div>
+<div class="container mt-4 homebody">
+<form action="/logout?_method=DELETE" method="post">
+    <button type="submit" class="btn mt-4 btn-block" style="border-radius: 2rem">Log Out</button>
+</form>
 <hr>
-<h3 class="mt-4">List of your Recently Visited Threads!</h3>
+
+<h3 class="mt-4">List of your Recently Visited Threads!</h3> 
+<div class="headlinesBox">
 <ul class="mt-4">
     {{#each userthreads}}
-        <li class="">
+        <li>
             <a href="#">{{this}}</a>
         </li>
     {{/each}}
 </ul>
+</div>
 
 <hr>
 <h3 class="mt-4">Most Liked Threads in the Community!</h3>
+<div class="headlinesBox">
 <ul class="mt-4">
     {{#each hotposts}}
-        <li class="">
+        <li>
             <div>
             <a href="#">{{this}}</a>
             </div>
         </li>
     {{/each}}
 </ul>
+</div>
+</div>

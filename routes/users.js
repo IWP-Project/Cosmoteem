@@ -1,5 +1,9 @@
 const express = require('express');
+const users = require('../Users');
 const router = express.Router();
+
+// Display All Users
+router.get('/', (req, res) => res.json(users));
 
 // Login Page
 router.get('/login', (req, res) => res.render('login'));
