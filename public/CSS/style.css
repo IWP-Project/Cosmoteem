@@ -802,6 +802,7 @@ figure {
      margin-left: 10%;
      margin-right: 10%;
      
+     
  }
  .forumsheading h1{
    
@@ -825,14 +826,15 @@ figure {
    margin-bottom: -5%;
     text-align: center;
 }
-.acc {
+article {
 	font-weight: 300;
 	font-size: 0.9375rem;
   box-sizing: border-box;
-	max-width: 70%;
+	max-width: 100%;
 	margin: 0 auto;
   color: #696666;
   margin-left: 0%;
+  margin-right: -100%;
 }
 
 .accordion,
@@ -922,11 +924,13 @@ figure {
 
  .forumsContent ul{
      font-family: sans-serif;
+     font-size: 22px;
      padding: 5px;
      margin: 5px;
      position: left;      
      background-color: rgba(255, 255, 255, 0.438);
-     color: black;  
+     color: black; 
+      
      
  }
  .forumsContent ul li{
@@ -958,6 +962,7 @@ figure {
      font-weight: 600;
      transform: translateY(-20px);
  }
+
  /* .galleri {
   display: flexbox;
   flex-wrap: wrap;
@@ -978,13 +983,162 @@ figure {
 } */
 
 .headingtop h1,
+.headingtop h2,
 .container form1 h2{
   color: #ffffff;
+  text-align: center;
 }
 
+.btndone{
+  background-color: rgb(102, 233, 215);
+  color: black;
+  text-decoration: none;
+  margin: 20px;   
+  margin-top: 30px;
+  /* padding: 50px; */
+  border-radius: 10px;
+  text-align: center;
+  max-width: 10rem;
+  background: transparent;
+}
 
+.signupdonebox{
+  background-color: rgba(0,0,0,0.4);
+  min-width: 50rem;
+  margin-bottom: 30%;
+  margin-left: 10%;
+  margin-right: 10%;
+  
+}
+.formdone{
+  background:transparent;
+  text-align: center;  
+  margin-bottom: 10%;
+}
+.dashboardinital{
+  margin-left: 10%;
+  margin-right: 10%;
+  text-align: center;
+}
+.dashboardinital h2{
+  color: white;
+}
+.forumsContent p{
+  display:flexbox;
+  color: gray;
+  text-align: right;
+  font-size: 14px;;
+}
+.topthread{
+  background-color:white;
+  text-align: justify;
+  max-height: 43rem;
+  margin-top: 4%;
+  border-radius: 1%;
+}
+.topthread h5{
+  text-align: right;
+}
+.bodytopthread h2{
+  text-align: center;
+}
+.bodytopthread{
+  margin: 3%;
+}
+.forumsbody2{
+  display:flex;
+}
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  max-width: 1180px;
+  margin: 0 auto;
 
-
+}
+.flex-container .item-1, .flex-container .item-2, .flex-container .item-3 {
+  padding: 50px 40px;
+  border: 1px solid gray;
+  border-radius: 20px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 33%;
+  text-align: center;
+  background-color: rgba(255,255,255,.9);
+}
+.flex-container .item-1 i, .flex-container .item-2 i, .flex-container .item-3 i {
+  font-size: 50px;
+}
+.flex-container .item-1 i, .flex-container .item-2 i, .flex-container .item-3 i, .flex-container .item-1 p.subtitle-flex, .flex-container .item-2 p.subtitle-flex, .flex-container .item-3 p.subtitle-flex {
+  color: #707070;
+}
+.flex-container .item-1 .middle-text, .flex-container .item-2 .middle-text, .flex-container .item-3 .middle-text {
+  font-size: 22px;
+  font-weight: 200;
+  margin: 20px auto;
+}
+.flex-container .item-1 .footer-text, .flex-container .item-2 .footer-text, .flex-container .item-3 .footer-text {
+  color: #949494;
+}
+.flex-container .item-1, .flex-container .item-2 {
+  position: relative;
+}
+.base-wrap {
+  position: absolute;
+  right: 0;
+  margin-right: -10.5%;
+  top: 47%;
+}
+.base {
+  background: rgba(255,255,255,.9);
+  display: inline-block;
+  height: 20px;
+  margin-left: 20px;
+  margin-top: 5px;
+  position: relative;
+  width: 60px;
+  transform: rotate(90deg);
+  border: 1px solid #444;
+  border-bottom: 1px solid transparent;
+  z-index: 1;
+}
+.base:before {
+  border-bottom: 34px solid #444;
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+  content: "";
+  height: 0;
+  left: -1px;
+  position: absolute;
+  top: -35px;
+  width: 0;
+}
+.base:after {
+  border-bottom: 34px solid #fff;
+  border-left: 29px solid transparent;
+  border-right: 29px solid transparent;
+  content: "";
+  height: 0.5px;
+  left: 0px;
+  position: absolute;
+  top: -34px;
+  width: 0;
+}
+@media (max-width: 768px) {
+  .flex-container {
+    display: block;
+    width: 300px;
+ }
+  .flex-container .base-wrap {
+    top: auto;
+    bottom: -24px;
+    left: -18%;
+ }
+  .flex-container .base-wrap .base {
+    transform: rotate(180deg);
+ }
+}
 /*
 Extra small (xs) devices (portrait phones, less than 576px)
 No media query since this is the default in Bootstrap

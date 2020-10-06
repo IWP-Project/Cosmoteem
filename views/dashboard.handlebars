@@ -1,23 +1,73 @@
-<h1> Welcome {{usersusername}} </h1>
+<div class="headingtop">
+    <h1> Welcome {{usersusername}} </h1>
+</div>
 
-<hr>
-<h3 class="mt-4">List of your Recently Visited Threads!</h3>
+
+<div class="dashboardinital">
+    <hr>
+    {{!-- <h2 class="mt-4">List of your Recently Visited Threads!</h2>
 <ul class="mt-4">
     {{#each userthreads}}
         <li class="">
             <a href="#">{{this}}</a>
         </li>
     {{/each}}
-</ul>
+</ul> --}}
+    <h2 class="mt-4">Top News Picks!</h2>
+    <div class="flex-container">
+       <div class="item-1">
 
-<hr>
-<h3 class="mt-4">Most Liked Threads in the Community!</h3>
-<ul class="mt-4">
-    {{#each hotposts}}
-        <li class="">
-            <div>
-            <a href="#">{{this}}</a>
+            <div class="middle-text">
+                SpaceX aborts the Starlink launch due to ground-sensor reading
             </div>
-        </li>
-    {{/each}}
-</ul>
+            
+            <div class="base-wrap">
+                <div class="base"></div>
+            </div>
+        </div>
+        <div class="item-2">
+
+            <div class="middle-text">
+                Starburst Aerospace announces expansion in India.
+            </div>
+           
+            <div class="base-wrap">
+                <div class="base"></div>
+            </div>
+        </div>
+        <div class="item-3">
+
+            <div class="middle-text">
+               HyImpulse hybrid rocket motor roars to life for the first time.
+            </div>
+            
+        </div>
+    </div>
+
+    <hr>
+    <h2 class="mt-4">Most Liked Threads in the Community!</h2>
+    <div class="headlinesBox">
+        <ul class="mt-4">
+            {{#each hotposts}}
+            <li class="">
+                <div>
+                    <a href="#">{{this}}</a>
+                </div>
+            </li>
+            {{/each}}
+        </ul>
+    </div>
+
+    <div class="signupdonebox">
+        <h2>Click the Button Below to edit your Dashboard!</h2>
+
+
+        <form method="post" action="" class="formdone">
+
+            <a href="#"><input type="submit" value="Edit Dashboard" class="btndone"></a>
+
+        </form>
+
+
+    </div>
+</div>
