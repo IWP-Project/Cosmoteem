@@ -1,11 +1,13 @@
+// Environment variables require
 if (process.env.NODE_ENV !== 'production') {
     require('dotenv').config()
 }
 
+// Require Express
 const express = require('express')
-
-//init express
+    // Init express
 const app = express()
+    // Require Handlebars
 const exphbs = require('express-handlebars')
 const fs = require('fs')
 const users = require('./Users')
