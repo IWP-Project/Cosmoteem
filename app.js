@@ -19,6 +19,17 @@ const session = require('express-session')
 const bcrypt = require('bcryptjs')
 const methodOverride = require('method-override')
 
+// Mongo DB
+const mongoose = require('mongoose')
+mongoose.connect(process.env.DATABASE_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+})
+const db = mongoose.connection
+db.on('error', error => console.error(error))
+db.once('open', () => console.log('Connected to Mongoose'))
+
+
 // Init of Login Passport
 const intiliazePassport = require('./passport-config')
 intiliazePassport(
@@ -34,6 +45,9 @@ app.set('view engine', 'handlebars')
     // Body Parser Middleware
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
+    // Setting a Static Folder for accessing all the static files like css/js/images
+app.use(express.static(__dirname + '/public'));
+
 app.use(flash())
 app.use(session({
     secret: process.env.SESSION_SECRET,
@@ -45,54 +59,19 @@ app.use(passport.session())
 app.use(methodOverride('_method'))
 
 
-// Setting a Static Folder for accessing all the static files like css/js/images
-app.use(express.static(__dirname + '/public'));
+// --------------- ROUTES ----------------- //
 
 // HomePage Route
 app.get('/', (req, res) => res.render('home'))
 
-//signup/ login success
+// Login success
 app.get('/signupdone', checkAuthenticated, (req, res) => {
     res.render('signupdone', {
         userid: req.user.id
     })
 })
 
-// User Dashboard 
-// app.get('/dashboard/:id', checkAuthenticated, (req, res) => {
-//     const found = users.some(user => user.id === parseInt(req.params.id));
-
-//     if (found) {
-//         users.forEach(user => {
-//             if (user.id === parseInt(req.params.id)) {
-//                 usersusername = user.username;
-//                 userthreads = user.threads;
-//             }
-//         });
-//         const upvoteArray = [];
-//         posts.forEach(post => {
-//             upvoteArray.push(post.upvotes);
-//         });
-//         upvoteArray.sort((a, b) => b - a);
-
-//         const hotposts = [];
-//         upvoteArray.forEach(upvote => {
-//             posts.forEach(post => {
-//                 if (upvote === post.upvotes) {
-//                     hotposts.push(post.title);
-//                 }
-//             })
-//         });
-
-//         res.render('dashboard', {
-//             usersusername,
-//             userthreads,
-//             hotposts,
-//         });
-//     } else {
-//         res.status(404).render('404');
-//     }
-// });
+// Dashboard of User
 app.get('/dashboard', checkAuthenticated, (req, res) => {
     const found = users.some(user => user.id === req.user.id);
 
@@ -127,11 +106,12 @@ app.get('/dashboard', checkAuthenticated, (req, res) => {
         res.status(404).render('404');
     }
 });
-//Routes For Unlogged in pages
+
+//Routes For Unlogged pages
 app.use('/', require('./routes/index'));
 
 //Routes for user pages
-//app.use('/users', require('./routes/users'));
+//app.use('/dashboard', checkAuthenticated, require('./routes/users'));
 
 // Route For Login
 app.get('/login', checkNotAuthenticated, (req, res) => res.render('login'))
@@ -167,7 +147,8 @@ app.post('/sign-up', checkNotAuthenticated, async(req, res) => {
         //     userid: newUser.id
         // });
         res.redirect('/login')
-    } catch {
+    } catch (err) {
+        console.log(err)
         res.redirect('/sign-up')
     }
 })
