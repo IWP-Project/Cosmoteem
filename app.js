@@ -7,12 +7,10 @@ if (process.env.NODE_ENV !== 'production') {
 const express = require('express')
     // Init express
 const app = express()
-    // Require Handlebars
+
+// Require Handlebars
 const exphbs = require('express-handlebars')
-const fs = require('fs')
-const users = require('./Users')
-const posts = require('./Posts')
-const path = require('path')
+
 const passport = require('passport')
 const flash = require('express-flash')
 const session = require('express-session')
@@ -44,8 +42,9 @@ app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars')
     // Body Parser Middleware
 app.use(express.json())
-app.use(express.urlencoded({ extended: false }))
-    // Setting a Static Folder for accessing all the static files like css/js/images
+app.use(express.urlencoded({ limit: '10mb', extended: false }))
+
+// Setting a Static Folder for accessing all the static files like css/js/images
 app.use(express.static(__dirname + '/public'));
 
 app.use(flash())
@@ -61,8 +60,16 @@ app.use(methodOverride('_method'))
 
 // --------------- ROUTES ----------------- //
 
-// HomePage Route
-app.get('/', (req, res) => res.render('home'))
+const indexRouter = require('./routes/index')
+const userRouter = require('./routes/users')
+
+
+// Index Pages Routing
+app.use('/', indexRouter)
+
+// User Pages Routing
+app.use('/users', userRouter)
+
 
 // Login success
 app.get('/signupdone', checkAuthenticated, (req, res) => {
@@ -106,12 +113,6 @@ app.get('/dashboard', checkAuthenticated, (req, res) => {
         res.status(404).render('404');
     }
 });
-
-//Routes For Unlogged pages
-app.use('/', require('./routes/index'));
-
-//Routes for user pages
-//app.use('/dashboard', checkAuthenticated, require('./routes/users'));
 
 // Route For Login
 app.get('/login', checkNotAuthenticated, (req, res) => res.render('login'))

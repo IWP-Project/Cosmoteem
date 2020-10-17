@@ -4,6 +4,10 @@ const router = express.Router();
 const users = require('../Users');
 const posts = require('../Posts');
 
+// Homepage Route
+router.get('/', (req, res) => {
+    res.render('home')
+})
 
 router.get('/home', (req, res) => res.render('home'));
 router.get('/photogallery', (req, res) => res.render('gallery'));
