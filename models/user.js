@@ -1,10 +1,6 @@
 const mongoose = require('mongoose')
 
 const userSchema = new mongoose.Schema({
-    id: {
-        type: String,
-        required: true
-    },
     username: {
         type: String,
         required: true
@@ -24,8 +20,9 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    threads: {
-        type: Array
+    date: {
+        type: Date,
+        default: Date.now
     }
 })
 
