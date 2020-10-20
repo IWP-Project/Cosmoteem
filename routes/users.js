@@ -62,36 +62,35 @@ router.post('/new', auth.checkNotAuthenticated, async(req, res) => {
     } else {
         // Validation Passes
         // Check if user already exists
-        User.findOne({ $or: [{ email: email }, { username: username }] })
-            .then(async user => {
-                if (user) {
-                    //User Exists
-                    if (user.username === newUser.username) {
-                        errors.push({ msg: 'Username already exists!' })
-                    } else {
-                        errors.push({ msg: 'Email already exists!' })
-                    }
-                    // Could add the username we found to ask if its the same person.
-                    res.render('users/new', {
-                        user: newUser.toJSON(),
-                        errorMessage: errors
-                    })
-                } else {
-                    // Hash Password
-                    bcrypt.genSalt(10, (err, salt) =>
-                        bcrypt.hash(newUser.password, salt, (err, hash) => {
-                            if (err) throw err
-                            newUser.password = hash
-                            newUser.save()
-                                .then(user => {
-                                    req.flash('success_msg', 'You are now Registered and can Login')
-                                    res.redirect("/users/login")
-                                })
-                                .catch(err => console.log(err))
-                        }))
-                }
+        const user = await User.findOne({ $or: [{ email: email }, { username: username }] })
+        if (user) {
+            //User Exists
+            if (user.username === newUser.username) {
+                errors.push({ msg: 'Username already exists!' })
+            } else {
+                errors.push({ msg: 'Email already exists!' })
+            }
+            // Could add the username we found to ask if its the same person.
+            res.render('users/new', {
+                user: newUser.toJSON(),
+                errorMessage: errors
             })
-
+        } else {
+            // Hash Password
+            try {
+                const hashedPass = await bcrypt.hash(newUser.password, 10)
+                newUser.password = hashedPass
+                const user = await newUser.save()
+                try {
+                    req.flash('success_msg', 'You are now Registered and can Login')
+                    res.redirect("/users/login")
+                } catch (e) {
+                    console.log(e)
+                }
+            } catch (err) {
+                console.log(err)
+            }
+        }
     }
 })
 
