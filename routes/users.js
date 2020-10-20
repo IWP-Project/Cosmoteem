@@ -3,7 +3,7 @@ const router = express.Router();
 const User = require('../models/User')
 const bcrypt = require('bcryptjs')
 const passport = require('passport')
-const auth = require('../config/auth')
+const auth = require('../config/auth');
 
 // All Users GET Route
 router.get('/', async(req, res) => {
@@ -62,13 +62,18 @@ router.post('/new', auth.checkNotAuthenticated, async(req, res) => {
     } else {
         // Validation Passes
         // Check if user already exists
-        User.findOne({ email: email })
+        User.findOne({ $or: [{ email: email }, { username: username }] })
             .then(async user => {
                 if (user) {
                     //User Exists
-                    errors.push({ msg: 'Email is already registered' })
+                    if (user.username === newUser.username) {
+                        errors.push({ msg: 'Username already exists!' })
+                    } else {
+                        errors.push({ msg: 'Email already exists!' })
+                    }
+                    // Could add the username we found to ask if its the same person.
                     res.render('users/new', {
-                        user: user.toJSON(),
+                        user: newUser.toJSON(),
                         errorMessage: errors
                     })
                 } else {
@@ -84,20 +89,9 @@ router.post('/new', auth.checkNotAuthenticated, async(req, res) => {
                                 })
                                 .catch(err => console.log(err))
                         }))
-
-
-                    // try {
-                    //     const user = await newUser.save()
-                    //         // res.redirect(`users/${newUser.id}`)
-                    //     res.redirect('/users')
-                    // } catch {
-                    //     res.render('users/new', {
-                    //         user: newUser.toJSON(),
-                    //         errorMessage: 'Error creating User'
-                    //     })
-                    // }
                 }
             })
+
     }
 })
 
