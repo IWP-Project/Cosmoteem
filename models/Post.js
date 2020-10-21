@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 
 const postSchema = new mongoose.Schema({
+    _id: mongoose.Schema.Types.ObjectId,
     title: {
         type: String,
         required: true
@@ -13,9 +14,10 @@ const postSchema = new mongoose.Schema({
         type: Date,
         default: Date.now
     },
-    user: {
-        type: String,
-        default: "admin"
+    author: {
+        type: mongoose.Schema.Types.ObjectId,
+        required: true,
+        ref: 'User'
     },
     tags: {
         type: String

@@ -32,6 +32,14 @@ const intiliazePassport = require('./config/passport')
 intiliazePassport(
     passport
 )
+var hbs = exphbs.create({})
+    // Equal to Helper for Handlebars
+hbs.handlebars.registerHelper('ifCond', function(v1, v2, options) {
+    if (v1 === v2) {
+        return options.fn(this);
+    }
+    return options.inverse(this);
+});
 
 // Middleware for Handlebars templates
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }))

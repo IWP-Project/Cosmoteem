@@ -1,10 +1,33 @@
-<h1 style="color: ghostwhite;">Post Preview</h1>
+<h1 style="color: ghostwhite;">Your Posts</h1>
 
-<h1>{{ title }}</h1>
 
 <div style="color: pink; font-family:fantasy; font-size:22px; padding-left: 10%;">
     {{> errorMessage}}
 </div>
+
+{{#each userposts as | userpost |}}
+    <a href="#">
+        <li style="list-style-type:none; color:rgb(30, 255, 0); font-size: 150%">
+
+            <div class="container card" style="max-height: 172px; min-height: 172px; overflow:hidden;">
+                <strong>{{userpost.title}}</strong>
+                <small><textarea disabled readonly maxlength="10" cols="100">{{userpost.body}}</textarea></small>
+                <small style="color:#333">{{userpost.date}}</small>
+            </div>
+            <div class="container">
+                <hr style="background-color: azure;">
+            </div>
+
+        </li>
+    </a>
+    <br>
+{{/each}}
+
+<br>
+<br>
+<hr>
+<br>
+<br>
 
 <h1 style="color:white">Search Posts</h1>
 <div class="container">
@@ -17,19 +40,26 @@
 <br>
 
 <ul>
-    {{#each posts as | post |}}
+    {{#each posts}}
     <a href="#">
-    <li style="list-style-type:none; color:rgb(30, 255, 0); font-size: 150%">
-        
-        <div class="container card" style="max-height: 172px; min-height: 172px; overflow:hidden;">
-            <strong>{{post.title}}</strong>
-            <small><textarea disabled readonly maxlength="10" cols="100">{{post.body}}</textarea></small>
-            <small style="color:#333">{{post.date}}</small>
-            <em><small style="color:#333">by {{post.user}}</small></em>
-        </div>
-        <div class="container"><hr style="background-color: azure;"></div>
-        
-    </li>
+        <li style="list-style-type:none; color:rgb(30, 255, 0); font-size: 150%">
+
+            <div class="container card" style="max-height: 172px; min-height: 172px; overflow:hidden;">
+                <strong>{{this.title}}</strong>
+                <small><textarea disabled readonly maxlength="10" cols="100">{{this.body}}</textarea></small>
+                <small style="color:#333">{{this.date}}</small>
+                <em><small style="color:#333">
+                       
+                            by {{this.author.username}}
+                       
+                    </small>
+                </em>
+            </div>
+            <div class="container">
+                <hr style="background-color: azure;">
+            </div>
+
+        </li>
     </a>
     <br>
     {{/each}}

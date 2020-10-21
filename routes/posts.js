@@ -5,6 +5,7 @@ const Post = require('../models/Post')
 const bcrypt = require('bcryptjs')
 const passport = require('passport')
 const auth = require('../config/auth')
+const mongoose = require('mongoose');
 
 // All and Search Posts GET Route
 router.get('/', async(req, res) => {
@@ -13,18 +14,23 @@ router.get('/', async(req, res) => {
         if (req.query.title !== null && req.query.title !== '') {
             searchOptions.title = new RegExp(req.query.title, 'i')
         }
-        const posts = await Post.find(searchOptions).sort({ date: 'desc' })
+        const user = await User.findOne({ _id: req.session.passport.user }).populate('posts').lean()
+        const posts = await Post.find(searchOptions).sort({ date: 'desc' }).populate('author')
+        console.log(posts)
+        console.log('--------------------------------------------------------------------------------------------------------')
         res.render('posts/all', {
             posts: posts.map(post => post.toJSON()),
-            searchOptions: req.query
+            searchOptions: req.query,
+            userposts: user.posts
         })
-    } catch {
+    } catch (e) {
+        console.log(e)
         res.redirect('/')
     }
 })
 
 // Create Thread GET Route
-router.get('/newpost', async(req, res) => {
+router.get('/newpost', auth.checkAuthenticated, async(req, res) => {
     try {
         res.render('posts/newpost', { post: new Post() })
     } catch {
@@ -33,7 +39,7 @@ router.get('/newpost', async(req, res) => {
 })
 
 // Create Thread POST Route
-router.post('/newpost', async(req, res) => {
+router.post('/newpost', auth.checkAuthenticated, async(req, res) => {
     const { tags, title, body } = req.body
     errors = []
         // Check for all fields
@@ -49,11 +55,16 @@ router.post('/newpost', async(req, res) => {
     } else {
         try {
             const newPost = new Post({
+                _id: new mongoose.Types.ObjectId(),
                 tags,
                 title,
+                author: req.session.passport.user,
                 body
             })
             const post = await newPost.save()
+            const user = await User.findOne({ _id: req.session.passport.user })
+            user.posts.push(newPost._id)
+            const uuser = await user.save()
             try {
                 req.flash('success_msg', 'You have created the Post successfully')
                 res.redirect("/posts")

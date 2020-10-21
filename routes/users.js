@@ -4,6 +4,7 @@ const User = require('../models/User')
 const bcrypt = require('bcryptjs')
 const passport = require('passport')
 const auth = require('../config/auth');
+const mongoose = require('mongoose');
 
 // All Users GET Route
 router.get('/', async(req, res) => {
@@ -46,11 +47,13 @@ router.post('/new', auth.checkNotAuthenticated, async(req, res) => {
     }
 
     const newUser = new User({
+        _id: new mongoose.Types.ObjectId(),
         username,
         email,
         firstName,
         lastName,
-        password
+        password,
+        posts: []
     })
 
     if (errors.length > 0) {
