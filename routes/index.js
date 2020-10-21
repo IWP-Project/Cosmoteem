@@ -1,7 +1,7 @@
 const { json } = require('body-parser');
 const express = require('express');
 const router = express.Router();
-const posts = require('../Posts');
+const Post = require('../models/Post');
 const auth = require('../config/auth')
 const User = require('../models/User')
 
@@ -15,6 +15,11 @@ router.get('/dashboard', auth.checkAuthenticated, async(req, res) => {
     res.render('users/dashboard', {
         username: req.user.username
     })
+})
+
+//Profile Page of User
+router.get('/profile', auth.checkAuthenticated, async(req, res) => {
+    res.render('users/profile')
 });
 
 router.get('/home', (req, res) => res.render('home'));

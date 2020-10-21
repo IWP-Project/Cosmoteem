@@ -3,7 +3,7 @@ const { parse } = require('path');
 const uuid = require('uuid');
 const router = express.Router();
 const User = require('../../models/User');
-const posts = require('../../Posts');
+const Post = require('../../models/Post');
 const bcrypt = require('bcryptjs');
 
 router.get('/', (req, res) => {

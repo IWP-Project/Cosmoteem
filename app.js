@@ -10,7 +10,6 @@ const app = express()
 
 // Require Handlebars
 const exphbs = require('express-handlebars')
-const posts = require('./Posts')
 const passport = require('passport')
 const flash = require('connect-flash')
 const session = require('express-session')
@@ -74,10 +73,14 @@ app.use(express.static(__dirname + '/public'));
 
 const indexRouter = require('./routes/index')
 const userRouter = require('./routes/users')
-    // Index Pages Routing
+const postRouter = require('./routes/posts')
+
+// Index Pages Routing
 app.use('/', indexRouter)
     // User Pages Routing
 app.use('/users', userRouter)
+    // User Pages Routing
+app.use('/posts', postRouter)
     // API to show userlist
 app.use('/api/users', require('./routes/api/users'))
 
