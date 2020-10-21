@@ -21,14 +21,16 @@
     <a href="#">
     <li style="list-style-type:none; color:rgb(30, 255, 0); font-size: 150%">
         
-        <div class="container card" style="max-height: 150px; min-height: 150px; overflow:hidden;">
+        <div class="container card" style="max-height: 172px; min-height: 172px; overflow:hidden;">
             <strong>{{post.title}}</strong>
             <small><textarea disabled readonly maxlength="10" cols="100">{{post.body}}</textarea></small>
             <small style="color:#333">{{post.date}}</small>
+            <em><small style="color:#333">by {{post.user}}</small></em>
         </div>
+        <div class="container"><hr style="background-color: azure;"></div>
         
     </li>
     </a>
-    <br> <hr>
+    <br>
     {{/each}}
 </ul>

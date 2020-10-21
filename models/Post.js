@@ -15,7 +15,7 @@ const postSchema = new mongoose.Schema({
     },
     user: {
         type: String,
-        default: true
+        default: "admin"
     },
     tags: {
         type: String
