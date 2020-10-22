@@ -5,24 +5,25 @@
 <hr>
 <!--Signup Form-->
 <section class="container form1">
-    <form action="/sign-up" method="post">
-
+    <form action="/users/new" method="POST">
         <div class="felement">
             <h2>Sign-Up to create your Space!</h2>
         </div>
-        <div class="msg"></div>
+        <div style="color: pink; font-family:fantasy; font-size:22px; padding-left: 10%;">
+            {{> errorMessage}}
+        </div>
         <div class="group1">
             <label for="name">Name</label>
-            <input type="text" name="firstname" placeholder="First">
-            <input type="text" name="lastname" placeholder="Last">
+            <input type="text" name="firstName" placeholder="First" value={{user.firstName}}>
+            <input type="text" name="lastName" placeholder="Last" value={{user.lastName}}>
         </div>
         <div class="group1">
             <label for="email">Email ID</label>
-            <input type="email" name="email" placeholder="Email ID">
+            <input type="email" name="email" placeholder="Email ID" value={{user.email}}>
         </div>
         <div class="group1">
             <label for="username">Username</label>
-            <input type="text" name="username" placeholder="Username">
+            <input type="text" name="username" placeholder="Username" value={{user.username}}>
         </div>
         <div class="group1">
             <label for="password">Password</label>
@@ -33,13 +34,13 @@
             <input type="password" name="cpassword" placeholder="Confirm Password">
         </div>
         <div class="group1">
-            <a href="login" style="color: ghostwhite;">Already have an account? Click here.</a>
+            <a href="/users/login" style="color: ghostwhite;">Already have an account? Click here.</a>
         </div>
         <div class="captcha">
         </div>
         <div class="submit-btn">
-            <input class="btn" type="submit" value="Submit">
-            <input class="btn" type="reset" value="Reset">
+            <input style="background-color: rgba(149, 56, 236, 0.808)"class="btn" type="submit" value="Register">
+            <input style="background-color: rgba(149, 56, 236, 0.808)" class="btn" type="reset" value="Reset">
         </div>
     </form>
 </section>

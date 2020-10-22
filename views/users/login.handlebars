@@ -7,12 +7,12 @@
 <hr>
 <!--Login Form-->
 <section class="container form1">
-    <form action="/login" method="POST">
+    <form action="/users/login" method="POST">
         <div class="felement">
             <h2>Log-In to access your Space!</h2>
         </div>
-        <div class="msg">
-            {{ error }}
+        <div style="color: pink; font-family:fantasy; font-size:22px; padding-left: 10%;">
+            {{> errorMessage}}
         </div>
         <div class="group2">
             <label for="username">Username</label>
@@ -26,12 +26,11 @@
 
         </div>
         <div class="group2 form1-link">
-            <a href="sign-up">First time here? Click here.</a>
+            <a href="/users/new">First time here? Click here.</a>
         </div>
         <div class="submit-btn">
-            <input class="btn" type="submit" value="Submit">
+            <input style="background-color: rgba(149, 56, 236, 0.808)" class="btn" type="submit" value="Login">
         </div>
     </form>
 </section>
 
-<script src="/JS/login.js"></script>

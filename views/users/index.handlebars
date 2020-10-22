@@ -1,0 +1,16 @@
+<h1 style="color:white">Search Users</h1>
+
+<form action="/users" method="GET">
+    <label style="color:white">Name</label>
+    <input type="text" name="username" value="{{searchOptions.username}}">
+    <button type="submit">Search</button>
+</form>
+<br>
+
+<ul>
+    {{#each users as | user |}}
+    <li style="color:cyan">
+            <p style="color:rgb(30, 255, 0)">{{user.username}}</p>
+    </li>
+    {{/each}}
+</ul>
