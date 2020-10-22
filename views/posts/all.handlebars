@@ -34,7 +34,11 @@
 
 <h1 style="color:white">Search Posts</h1>
 <div class="container">
+    {{#if userposts}}
+    <form action="/posts/all" method="GET">
+    {{else}}
     <form action="/posts" method="GET">
+    {{/if}}
         <label style="color:white">Title</label>
         <input type="text" name="title" value="{{searchOptions.title}}">
         <button type="submit">Search</button>
