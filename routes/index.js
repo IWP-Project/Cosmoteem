@@ -13,8 +13,12 @@ router.get('/', (req, res) => {
 // Dashboard for User
 router.get('/dashboard', auth.checkAuthenticated, async(req, res) => {
     console.log(req.session)
+    const user = await User.findOne({ _id: req.session.passport.user }).populate('posts').lean()
+    const userposts = await user.posts
+    console.log(userposts)
     res.render('users/dashboard', {
-        username: req.user.username
+        user,
+        userposts
     })
 })
 

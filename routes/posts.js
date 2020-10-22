@@ -7,8 +7,29 @@ const passport = require('passport')
 const auth = require('../config/auth')
 const mongoose = require('mongoose');
 
-// All and Search Posts GET Route
+// Threads for non logged in user
 router.get('/', async(req, res) => {
+    try {
+        const searchOptions = {}
+        if (req.query.title !== null && req.query.title !== '') {
+            searchOptions.title = new RegExp(req.query.title, 'i')
+        }
+        const posts = await Post.find(searchOptions).sort({ date: 'desc' }).populate('author')
+        console.log(posts)
+        console.log('--------------------------------------------------------------------------------------------------------')
+        res.render('posts/all', {
+            posts: posts.map(post => post.toJSON()),
+            searchOptions: req.query,
+            userposts: false
+        })
+    } catch (e) {
+        console.log(e)
+        res.redirect('/')
+    }
+})
+
+// All and Search Posts GET Route
+router.get('/all', auth.checkAuthenticated, async(req, res) => {
     try {
         const searchOptions = {}
         if (req.query.title !== null && req.query.title !== '') {
@@ -67,14 +88,13 @@ router.post('/newpost', auth.checkAuthenticated, async(req, res) => {
             const uuser = await user.save()
             try {
                 req.flash('success_msg', 'You have created the Post successfully')
-                res.redirect("/posts")
+                res.redirect("/posts/all")
             } catch (e) {
                 console.log(e)
                 res.redirect('/posts/newpost')
             }
         } catch (err) {
             console.log(err)
-            console.log('Hi')
         }
 
     }

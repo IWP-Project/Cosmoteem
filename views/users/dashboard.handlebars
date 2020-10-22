@@ -3,7 +3,7 @@
 </div>
 
 <div class="headingtop">
-    <h1> Welcome {{username}} </h1>
+    <h1> Welcome {{user.username}} </h1>
 </div>
 
 
@@ -50,18 +50,49 @@
     </div>
 
     <hr>
-    <h2 class="mt-4">Most Liked Threads in the Community!</h2>
+    {{#if userposts}}
+    <h2 class="mt-4">Your Most Liked Threads!</h2>
     <div class="headlinesBox">
         <ul class="mt-4">
-            {{#each hotposts}}
+            {{#each userposts as | userpost |}}
             <li class="">
-                <div>
-                    <a href="#">{{this}}</a>
-                </div>
+                <a href="#">
+                    <div>
+                        {{userpost.title}}<br>
+                        <small>Upvotes: {{userpost.upvotes}} </small>
+                    </div>
+                </a>
             </li>
             {{/each}}
         </ul>
+        <div class="forumsheading"
+            style="padding:10px;font-size:30px; background-color: #333; border-radius:20px;margin:auto 0;">
+            <a style="color:fuchsia;" href="/posts/all">See all of your Threads and Browse for More!</a>
+        </div>
+        <br>
+        <hr>
+        <br>
     </div>
+    {{else}}
+    <h2 class="mt-4">You haven't created any Threads Yet!</h2>
+
+    <div class="forumsheading"
+        style="padding:10px;font-size:30px; background-color: #333; border-radius:20px;margin:auto 0;">
+        <a style="color:fuchsia;" href="/posts/newpost">Post a Thread...</a>
+    </div>
+    <br>
+    <hr>
+    <br>
+    <div class="forumsheading"
+        style="padding:10px;font-size:30px; background-color: #333; border-radius:20px;margin:auto 0;">
+        <a style="color:fuchsia;" href="/posts/all">Browse Threads made by Other Users!</a>
+    </div>
+    <br>
+    <hr>
+    <br>
+    {{/if}}
+
+
 
     <div class="signupdonebox">
         <h2>Click the Button Below to edit your Dashboard!</h2>

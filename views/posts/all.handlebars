@@ -1,9 +1,10 @@
-<h1 style="color: ghostwhite;">Your Posts</h1>
+{{#if userposts}}<h1 style="color: ghostwhite;">Your Posts</h1>{{/if}}
 
 
 <div style="color: pink; font-family:fantasy; font-size:22px; padding-left: 10%;">
     {{> errorMessage}}
 </div>
+
 
 {{#each userposts as | userpost |}}
     <a href="#">
@@ -23,11 +24,13 @@
     <br>
 {{/each}}
 
-<br>
+{{#if userposts}}
+
 <br>
 <hr>
 <br>
-<br>
+
+{{/if}}
 
 <h1 style="color:white">Search Posts</h1>
 <div class="container">
