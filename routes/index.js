@@ -24,7 +24,11 @@ router.get('/dashboard', auth.checkAuthenticated, async(req, res) => {
 
 //Profile Page of User
 router.get('/profile', auth.checkAuthenticated, async(req, res) => {
-    res.render('users/profile')
+    const user = await User.findOne({ _id: req.session.passport.user })
+    console.log(user.username)
+    res.render('users/profile', {
+        user: user.username
+    })
 });
 
 router.get('/home', (req, res) => res.render('home'));
