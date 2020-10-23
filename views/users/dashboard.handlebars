@@ -56,7 +56,7 @@
         <ul class="mt-4">
             {{#each userposts as | userpost |}}
             <li class="">
-                <a href="#">
+                <a href="/posts/post/{{userpost._id}}">
                     <div>
                         {{userpost.title}}<br>
                         <small>Upvotes: {{userpost.upvotes}} </small>
@@ -69,6 +69,11 @@
             style="padding:10px;font-size:30px; background-color: #333; border-radius:20px;margin:auto 0;">
             <a style="color:fuchsia;" href="/posts/all">See all of your Threads and Browse for More!</a>
         </div>
+        <br>
+        <div class="forumsheading"
+        style="padding:10px;font-size:30px; background-color: #333; border-radius:20px;margin:auto 0;">
+        <a style="color:fuchsia;" href="/posts/newpost">Or Post a Thread...</a>
+    </div>
         <br>
         <hr>
         <br>

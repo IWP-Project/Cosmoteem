@@ -7,7 +7,7 @@
 
 
 {{#each userposts as | userpost |}}
-    <a href="#">
+    <a href="/posts/post/{{userpost._id}}">
         <li style="list-style-type:none; color:rgb(30, 255, 0); font-size: 150%">
 
             <div class="container card" style="max-height: 172px; min-height: 172px; overflow:hidden;">
@@ -48,7 +48,7 @@
 
 <ul>
     {{#each posts}}
-    <a href="#">
+    <a href="/posts/post/{{this._id}}">
         <li style="list-style-type:none; color:rgb(30, 255, 0); font-size: 150%">
 
             <div class="container card" style="max-height: 172px; min-height: 172px; overflow:hidden;">

@@ -1,11 +1,22 @@
 const express = require('express');
 const router = express.Router();
+const multer = require('multer')
 const User = require('../models/User')
 const Post = require('../models/Post')
+const path = require('path')
+const fs = require('fs')
 const bcrypt = require('bcryptjs')
 const passport = require('passport')
 const auth = require('../config/auth')
 const mongoose = require('mongoose');
+const uploadPath = path.join('public', Post.attachmentBasePath)
+const imageMimeTypes = ['image/jpg', 'image/png', 'image/jpeg', 'image/gif']
+const upload = multer({
+    dest: uploadPath,
+    fileFilter: (req, file, callback) => {
+        callback(null, imageMimeTypes.includes(file.mimetype))
+    }
+})
 
 // Threads for non logged in user
 router.get('/', async(req, res) => {
@@ -15,7 +26,6 @@ router.get('/', async(req, res) => {
             searchOptions.title = new RegExp(req.query.title, 'i')
         }
         const posts = await Post.find(searchOptions).sort({ date: 'desc' }).populate('author')
-        console.log(posts)
         console.log('--------------------------------------------------------------------------------------------------------')
         res.render('posts/all', {
             posts: posts.map(post => post.toJSON()),
@@ -28,6 +38,19 @@ router.get('/', async(req, res) => {
     }
 })
 
+// Single Thread Page GET Route
+router.get('/post/:_id', async(req, res) => {
+    try {
+        const post = await Post.findOne({ _id: req.params._id }).populate('author').lean({ virtuals: true })
+        res.render('posts/post', {
+            post
+        })
+    } catch (e) {
+        console.log(e)
+        res.redirect('/posts/all')
+    }
+})
+
 // All and Search Posts GET Route
 router.get('/all', auth.checkAuthenticated, async(req, res) => {
     try {
@@ -37,7 +60,6 @@ router.get('/all', auth.checkAuthenticated, async(req, res) => {
         }
         const user = await User.findOne({ _id: req.session.passport.user }).populate('posts').lean()
         const posts = await Post.find(searchOptions).sort({ date: 'desc' }).populate('author')
-        console.log(posts)
         console.log('--------------------------------------------------------------------------------------------------------')
         res.render('posts/all', {
             posts: posts.map(post => post.toJSON()),
@@ -60,14 +82,25 @@ router.get('/newpost', auth.checkAuthenticated, async(req, res) => {
 })
 
 // Create Thread POST Route
-router.post('/newpost', auth.checkAuthenticated, async(req, res) => {
+router.post('/newpost', auth.checkAuthenticated, upload.single('cover'), async(req, res) => {
+    const fileName = req.file != null ? req.file.filename : null
     const { tags, title, body } = req.body
+    const newPost = new Post({
+        _id: new mongoose.Types.ObjectId(),
+        tags,
+        title,
+        author: req.session.passport.user,
+        attachments: fileName,
+        body
+    })
     errors = []
         // Check for all fields
     if (!title || !body)
         errors.push({ msg: 'Please fill in the title and/or the body!' })
         //Validation doesn't pass
     if (errors.length > 0) {
+        if (newPost.attachments != null)
+            removeAttachment(newPost.attachments)
         res.render('posts/newpost', {
             title,
             body,
@@ -75,13 +108,6 @@ router.post('/newpost', auth.checkAuthenticated, async(req, res) => {
         })
     } else {
         try {
-            const newPost = new Post({
-                _id: new mongoose.Types.ObjectId(),
-                tags,
-                title,
-                author: req.session.passport.user,
-                body
-            })
             const post = await newPost.save()
             const user = await User.findOne({ _id: req.session.passport.user })
             user.posts.push(newPost._id)
@@ -90,15 +116,26 @@ router.post('/newpost', auth.checkAuthenticated, async(req, res) => {
                 req.flash('success_msg', 'You have created the Post successfully')
                 res.redirect("/posts/all")
             } catch (e) {
+                if (newPost.attachments != null)
+                    removeAttachment(newPost.attachments)
                 console.log(e)
                 res.redirect('/posts/newpost')
             }
         } catch (err) {
+            if (newPost.attachments != null)
+                removeAttachment(newPost.attachments)
             console.log(err)
         }
 
     }
 
 })
+
+function removeAttachment(fileName) {
+    fs.unlink(path.join(uploadPath, fileName), err => {
+        if (err) console.error(err)
+    })
+}
+
 
 module.exports = router;
