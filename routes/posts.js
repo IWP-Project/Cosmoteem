@@ -3,6 +3,7 @@ const router = express.Router();
 const multer = require('multer')
 const User = require('../models/User')
 const Post = require('../models/Post')
+const Comment = require('../models/Comments')
 const path = require('path')
 const fs = require('fs')
 const bcrypt = require('bcryptjs')
@@ -41,13 +42,22 @@ router.get('/', async(req, res) => {
 // Single Thread Page GET Route
 router.get('/post/:_id', async(req, res) => {
     try {
-        const post = await Post.findOne({ _id: req.params._id }).populate('author').lean({ virtuals: true })
+        //const post = await Post.findOne({ _id: req.params._id }).populate({ path: 'comments', populate: { path: 'author' } }).lean({ virtuals: true })
+        const post = await Post.findOne({ _id: req.params._id }).populate({ path: 'author comments', populate: { path: 'author' } }).lean({ virtuals: true })
+        const postcomments = await post.comments
+            // Find Logged in User
+        let user = false
+        if (req.isAuthenticated()) {
+            user = await User.findOne({ _id: req.session.passport.user }).lean()
+        }
         res.render('posts/post', {
-            post
+            post,
+            postcomments,
+            user
         })
     } catch (e) {
         console.log(e)
-        res.redirect('/posts/all')
+        res.redirect('/posts')
     }
 })
 
@@ -129,6 +139,42 @@ router.post('/newpost', auth.checkAuthenticated, upload.single('cover'), async(r
 
     }
 
+})
+
+// Create a Comment POST route
+router.post('/post/:_id/comments', async(req, res) => {
+    const { body } = req.body
+    const post = await Post.findOne({ _id: req.params._id })
+    postcomments = await post.comments
+    const newComment = new Comment({
+        _id: new mongoose.Types.ObjectId(),
+        body,
+        author: req.session.passport.user
+    })
+    errors = []
+        // Check for all fields
+    if (!body)
+        errors.push({ msg: 'Comment can not be Blank!' })
+        //Validation doesn't pass
+    if (errors.length > 0) {
+        req.flash('error_msg', 'Comment can not be Blank!')
+        res.redirect('/posts/post/' + req.params._id)
+    } else {
+        try {
+            const comment = await newComment.save()
+            post.comments.push(newComment._id)
+            const upost = await post.save()
+            try {
+                req.flash('success_msg', 'You have commented successfully')
+                res.redirect("/posts/post/" + req.params._id)
+            } catch (e) {
+                console.log(e)
+                res.redirect('/posts/post' + req.params._id)
+            }
+        } catch (err) {
+            console.log(err)
+        }
+    }
 })
 
 function removeAttachment(fileName) {

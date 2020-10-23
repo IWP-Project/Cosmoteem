@@ -1,8 +1,10 @@
-
+<div style="color: pink; font-family:fantasy; font-size:22px; padding-left: 10%;">
+            {{> errorMessage}}
+</div>
 <div class="container card mt-4" style="text-align: center;">
     <div style="text-align: left;">
         <a href="">
-        <h5>{{post.author.username}}</h5>
+            <h5>{{post.author.username}}</h5>
         </a>
         <small><em>{{post.date}}</em></small>
     </div>
@@ -13,3 +15,32 @@
     <hr>
     <img style="max-width: 800px; max-height: 600px" src={{post.attachmentImgPath}}>
 </div>
+{{#each postcomments}}
+<div class="container card mt-4" style="text-align: center;">
+        <div style="text-align: left;">
+            <a href=""><h5>{{this.author.username}}</h5></a>
+            <p>{{this.body}}</p>
+        </div>
+</div>
+<br>
+{{/each}}
+<br>
+{{#if user}}
+<div class="container card mt-4" style="text-align: center;">
+    <form action="/posts/post/{{post._id}}/comments" method="post">
+        <div class="group1">
+            <label for="body" style="color:black;text-align:left">Reply to the Thread</label>
+            <textarea class="form-control" name="body"></textarea>
+        </div>
+        <div class="submit-btn">
+            <input style="background-color: rgba(149, 56, 236, 0.808)" class="btn" type="submit" value="Comment">
+        </div>
+    </form>
+</div>
+{{else}}
+<div class="container card mt-4" style="text-align: center;">
+    <h1>
+        <a href="/users/login">Login to Comment!</a>
+    </h1>
+</div>
+{{/if}}
