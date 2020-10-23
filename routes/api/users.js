@@ -2,11 +2,18 @@ const express = require('express');
 const { parse } = require('path');
 const uuid = require('uuid');
 const router = express.Router();
-const users = require('../../Users');
-const posts = require('../../Posts');
+const User = require('../../models/User');
+const Post = require('../../models/Post');
 const bcrypt = require('bcryptjs');
 
-router.get('/', (req, res) => res.json(users));
+router.get('/', (req, res) => {
+    User.find({}, (err, users) => {
+        var userMap = {}
+
+        users.forEach(user => userMap[user._id] = user)
+        res.send(userMap)
+    })
+})
 
 router.get('/:id', (req, res) => {
     const found = users.some(user => user.id === parseInt(req.params.id));

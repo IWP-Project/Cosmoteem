@@ -19,75 +19,12 @@
 </head>
 
 <body>
-    <!-- navigation-->
-    <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#"><img class="toplogo" src="/images/bitspaceheadertop.png"></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item" active>
-                        <a class="nav-link" href="home">HOME</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="forums">FORUMS</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="topnews">TOP NEWS</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">PLANITARIUM</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="photogallery">GALLERY</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="store">STORE</a>
-                    </li>
-                    <a class="navbar-brand" href="login"><img src="/images/userlogo.png" style="width:60px; height:40px"></a>
-                </ul>
-            </div>
-        </div>
-    </nav>
+
+    {{> header}}
     
     {{{body}}}
 
-    <!--footer-->
-    <footer>
-        <div class="container-fluid padding">
-            <div class="row text-center">
-                <div class="col-md-4">
-                    <img src="/images/bitspaceheadertop.png" style="width:250px; height:60px">
-                    <hr class="light">
-                    <p>00000-00000</p>
-                    <p>email@gmail.com</p>
-                    <p>Vellore</p>
-                    <p>Tamil Nadu</p>
-                </div>
-                <div class="col-md-4">
-                    <hr class="light">
-                    <h5>Our Hours</h5>
-                    <hr class="light">
-                    <p>Friday: 10am-5pm</p>
-                    <p>Monday: 10am-5pm</p>
-                    <p>Sunday: Closed</p>
-                </div>
-                <div class="col-md-4">
-                    <hr class="light">
-                    <h5>Service Area</h5>
-                    <hr class="light">
-                    <p>India</p>
-                    <p></p>
-                </div>
-                <div class="col-12">
-                    <hr class="light">
-                    <h5>&copy bitspace.com</h5>
-                </div>
-            </div>
-        </div>
-    </footer>
+    {{> footer}}
 
     <!--Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
