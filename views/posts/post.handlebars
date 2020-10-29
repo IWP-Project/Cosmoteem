@@ -1,5 +1,5 @@
 <div style="color: pink; font-family:fantasy; font-size:22px; padding-left: 10%;">
-            {{> errorMessage}}
+    {{> errorMessage}}
 </div>
 <div class="container card mt-4" style="text-align: center;">
     <div style="text-align: left;">
@@ -14,13 +14,23 @@
     <p>{{post.body}}</p>
     <hr>
     <img style="max-width: 800px; max-height: 600px" src={{post.attachmentImgPath}}>
+    <br>
+    <form class="vote-up" data-id="{{post._id}}">
+        <button type="submit">Vote Up</button>
+    </form>
+    | Upvotes : {{post.voteScore}}
+    <form class="vote-down" data-id="{{post._id}}">
+        <button type="submit">Vote Down</button>
+    </form>
 </div>
 {{#each postcomments}}
 <div class="container card mt-4" style="text-align: center;">
-        <div style="text-align: left;">
-            <a href=""><h5>{{this.author.username}}</h5></a>
-            <p>{{this.body}}</p>
-        </div>
+    <div style="text-align: left;">
+        <a href="">
+            <h5>{{this.author.username}}</h5>
+        </a>
+        <p>{{this.body}}</p>
+    </div>
 </div>
 <br>
 {{/each}}

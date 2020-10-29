@@ -101,7 +101,10 @@ router.post('/newpost', auth.checkAuthenticated, upload.single('cover'), async(r
         title,
         author: req.session.passport.user,
         attachments: fileName,
-        body
+        body,
+        upVotes: [],
+        downVotes: [],
+        voteScore: 0
     })
     errors = []
         // Check for all fields
@@ -174,6 +177,71 @@ router.post('/post/:_id/comments', async(req, res) => {
         } catch (err) {
             console.log(err)
         }
+    }
+})
+
+// Route for Vote up and Vote down on Posts
+router.put('/post/:_id/vote-up', auth.checkAuthenticated, async(req, res) => {
+    const post = await Post.findById(req.params._id)
+    try {
+        var flag = 0
+        var index = await post.downVotes.length - 1
+        var uindex = await post.upVotes.length - 1
+        while (index >= 0) {
+            if (post.downVotes[index] == req.session.passport.user) {
+                post.downVotes.splice(index, 1)
+                post.voteScore = post.voteScore + 1
+            }
+            index -= 1
+        }
+        while (uindex >= 0) {
+            if (post.upVotes[uindex] == req.session.passport.user) {
+                post.upVotes.splice(uindex, 1);
+                post.voteScore = post.voteScore - 1
+                flag = 1
+            }
+            uindex -= 1
+        }
+
+        if (flag === 0) {
+            post.upVotes.push(req.session.passport.user);
+            post.voteScore = post.voteScore + 1;
+        }
+        post.save();
+        res.status(200);
+    } catch (e) {
+        console.log(e)
+    }
+})
+router.put('/post/:_id/vote-down', auth.checkAuthenticated, async(req, res) => {
+    const post = await Post.findById(req.params._id)
+    try {
+        var flag = 0
+        var index = await post.downVotes.length - 1
+        var uindex = await post.upVotes.length - 1
+        while (index >= 0) {
+            if (post.downVotes[index] == req.session.passport.user) {
+                post.downVotes.splice(index, 1)
+                post.voteScore = post.voteScore + 1
+                flag = 1
+            }
+            index -= 1
+        }
+        while (uindex >= 0) {
+            if (post.upVotes[uindex] == req.session.passport.user) {
+                post.upVotes.splice(uindex, 1);
+                post.voteScore = post.voteScore - 1
+            }
+            uindex -= 1
+        }
+        if (flag === 0) {
+            post.downVotes.push(req.session.passport.user);
+            post.voteScore = post.voteScore - 1;
+        }
+        post.save();
+        res.status(200);
+    } catch (e) {
+        console.log(e)
     }
 })
 

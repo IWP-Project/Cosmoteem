@@ -28,9 +28,16 @@ const postSchema = new mongoose.Schema({
     tags: {
         type: String
     },
-    upvotes: {
-        type: Number,
-        default: 0
+    upVotes: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    }],
+    downVotes: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    }],
+    voteScore: {
+        type: Number
     },
     comments: [{
         type: mongoose.Schema.Types.ObjectId,
