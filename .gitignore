@@ -1,3 +1,4 @@
-main
+main/
 node_modules
 .env
+public/uploads

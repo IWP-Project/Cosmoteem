@@ -7,7 +7,7 @@
         <div style="color: pink; font-family:fantasy; font-size:22px; padding-left: 10%;">
             {{> errorMessage}}
         </div>
-        <form action="/posts/newpost" method="post">
+        <form action="/posts/newpost" method="post" enctype="multipart/form-data">
             <div class="group1">
                 <br>
                 <label for="tags">Which Category does your post belong in: </label><br>
@@ -26,6 +26,10 @@
             <div class="group1">
                 <label for="body">Body</label>
                 <textarea name="body" rows="4" cols="50">{{ body }}</textarea>
+            </div>
+            <div class="group1">
+                <label for="body">Any Attachments to help other understand better?</label>
+                <input type="file" name="cover">
             </div>
             <div class="captcha">
             </div>
