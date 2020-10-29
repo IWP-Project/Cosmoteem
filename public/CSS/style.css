@@ -192,6 +192,23 @@ img.toplogo {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+  
+}
+.carousel-caption2 {
+  position: absolute;
+  top: 50%;
+  left: 55%;  
+  transform: translateY(-50%);
+}
+.carousel-caption2 h1 {
+  font-size: 350%;
+  color: #fff;
+  text-shadow: 1px 1px 1px #000;
+}
+.carousel-caption2 h5,p {
+  font-size: 80%;
+  color: #fff;
+
 }
 
 .carousel-caption h1 {
