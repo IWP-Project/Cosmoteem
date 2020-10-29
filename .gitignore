@@ -1,3 +1,4 @@
-abc.txt
+main/
 node_modules
-
+.env
+public/uploads

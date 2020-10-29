@@ -1,0 +1,36 @@
+<div class="headingtop">
+    <h1>Welcome Back, Bitgazer!</h1>
+</div>
+
+
+
+<hr>
+<!--Login Form-->
+<section class="container form1">
+    <form action="/users/login" method="POST">
+        <div class="felement">
+            <h2>Log-In to access your Space!</h2>
+        </div>
+        <div style="color: pink; font-family:fantasy; font-size:22px; padding-left: 10%;">
+            {{> errorMessage}}
+        </div>
+        <div class="group2">
+            <label for="username">Username</label>
+            <input type="text" name="username" placeholder="username">
+        </div>
+        <div class="group2">
+            <label for="password">Password</label>
+            <input type="password" name="password" placeholder="password">
+        </div>
+        <div class="captcha">
+
+        </div>
+        <div class="group2 form1-link">
+            <a href="/users/new">First time here? Click here.</a>
+        </div>
+        <div class="submit-btn">
+            <input style="background-color: rgba(149, 56, 236, 0.808)" class="btn" type="submit" value="Login">
+        </div>
+    </form>
+</section>
+

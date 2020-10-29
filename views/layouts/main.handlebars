@@ -7,8 +7,9 @@
     <title>BITSPACE</title>
     <link href="/CSS/base1.css" rel="stylesheet">
     <link href="/CSS/style.css" rel="stylesheet">
-    <link href="/CSS/base.css" rel="stylesheet" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    
+    <link href="/CSS/base.css" rel="stylesheet"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"> -->
     <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">-->
@@ -19,81 +20,27 @@
 </head>
 
 <body>
-    <!-- navigation-->
-    <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#"><img class="toplogo" src="../images/bitspaceheadertop.png"></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item" active>
-                        <a class="nav-link" href="home">HOME</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">FORUMS</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">TOP NEWS</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">PLANITARIUM</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="photogallery">GALLERY</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">STORE</a>
-                    </li>
-                    <a class="navbar-brand" href="login"><img src="../images/userlogo.png" style="width:60px; height:40px"></a>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    
+
+    {{> header}}
+
     {{{body}}}
 
-    <!--footer-->
-    <footer>
-        <div class="container-fluid padding">
-            <div class="row text-center">
-                <div class="col-md-4">
-                    <img src="/images/bitspaceheadertop.png" style="width:250px; height:60px">
-                    <hr class="light">
-                    <p>00000-00000</p>
-                    <p>email@gmail.com</p>
-                    <p>Vellore</p>
-                    <p>Tamil Nadu</p>
-                </div>
-                <div class="col-md-4">
-                    <hr class="light">
-                    <h5>Our Hours</h5>
-                    <hr class="light">
-                    <p>Friday: 10am-5pm</p>
-                    <p>Monday: 10am-5pm</p>
-                    <p>Sunday: Closed</p>
-                </div>
-                <div class="col-md-4">
-                    <hr class="light">
-                    <h5>Service Area</h5>
-                    <hr class="light">
-                    <p>India</p>
-                    <p></p>
-                </div>
-                <div class="col-12">
-                    <hr class="light">
-                    <h5>&copy bitspace.com</h5>
-                </div>
-            </div>
-        </div>
-    </footer>
+    {{> footer}}
 
     <!--Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script rel="script" src="/js/postsajax.js"></script>
 </body>
 
 </html>

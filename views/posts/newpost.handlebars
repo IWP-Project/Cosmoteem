@@ -1,0 +1,42 @@
+<header>
+    <h1 style="color: ghostwhite;">Create a New Post</h1>
+</header>
+
+<section class="ccontainer form1">
+    <div>
+        <div style="color: pink; font-family:fantasy; font-size:22px; padding-left: 10%;">
+            {{> errorMessage}}
+        </div>
+        <form action="/posts/newpost" method="post" enctype="multipart/form-data">
+            <div class="group1">
+                <br>
+                <label for="tags">Which Category does your post belong in: </label><br>
+                <select name="tags" value={{ tags }}>
+                    <option value="equipment">Astronomical Equipment</option>
+                    <option value="astronomy">Astronomy and Stargazing</option>
+                    <option value="community">Community</option>
+                    <option value="gaming">Astronomy Games</option>
+                    <option value="FAQ">FAQ</option>
+                </select>
+            </div>
+            <div class="group1">
+                <label for="title">Title</label>
+                <input type="text" name="title" placeholder="Title should be up to the point." value={{ title }}>
+            </div>
+            <div class="group1">
+                <label for="body">Body</label>
+                <textarea name="body" rows="4" cols="50">{{ body }}</textarea>
+            </div>
+            <div class="group1">
+                <label for="body">Any Attachments to help other understand better?</label>
+                <input type="file" name="cover">
+            </div>
+            <div class="captcha">
+            </div>
+            <div class="submit-btn">
+                <input style="background-color: rgba(149, 56, 236, 0.808)" class="btn" type="submit" value="Post">
+                <input style="background-color: rgba(149, 56, 236, 0.808)" class="btn" type="reset" value="Clear">
+            </div>
+        </form>
+    </div>
+</section>
