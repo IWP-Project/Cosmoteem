@@ -36,6 +36,11 @@ router.get('/store', (req, res) => res.render('store'));
 router.get('/topnews', (req, res) => res.render('topnews'));
 router.get('/forums', (req, res) => res.render('forums'));
 
+// Testing Purpose for handlebars
+router.get('/test/topnews', (req, res) => {
+    res.render('news/topnews')
+})
+
 
 // Route to get all users from hard coded database
 router.get('/allusers', (req, res) => res.json(users));

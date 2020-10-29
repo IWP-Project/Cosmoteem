@@ -2,10 +2,18 @@
     {{> errorMessage}}
 </div>
 
-<div class="headingtop">
-    <h1> Welcome {{user.username}} </h1>
-</div>
 
+<div class="dashboard-body">
+    <div class="dash-card">
+        <div class="dash-card-image"></div>
+        <div class="dash-card-text">
+            <h1> Welcome {{user.username}} </h1>
+            <form method="GET" action="/profile" class="formdone">
+                <input type="submit" value="Edit Dashboard" class="btndone">
+            </form>
+        </div>
+    </div>
+</div>
 
 <div class="dashboardinital">
     <hr>
@@ -71,9 +79,9 @@
         </div>
         <br>
         <div class="forumsheading"
-        style="padding:10px;font-size:30px; background-color: #333; border-radius:20px;margin:auto 0;">
-        <a style="color:fuchsia;" href="/posts/newpost">Or Post a Thread...</a>
-    </div>
+            style="padding:10px;font-size:30px; background-color: #333; border-radius:20px;margin:auto 0;">
+            <a style="color:fuchsia;" href="/posts/newpost">Or Post a Thread...</a>
+        </div>
         <br>
         <hr>
         <br>
@@ -102,9 +110,6 @@
     <div class="signupdonebox">
         <h2>Click the Button Below to edit your Dashboard!</h2>
 
-        <form method="GET" action="/profile" class="formdone">
-            <input type="submit" value="Edit Dashboard" class="btndone">
-        </form>
         <form action="/users/logout?_method=DELETE" method="POST" class="formdone">
             <input type="submit" value="Log Out" class="btndone">
         </form>
