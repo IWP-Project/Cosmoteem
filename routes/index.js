@@ -40,4 +40,9 @@ router.get('/forums', (req, res) => res.render('forums'));
 // Route to get all users from hard coded database
 router.get('/allusers', (req, res) => res.json(users));
 
+//Testing
+router.get('/test/topnews', (req, res) => res.render('news/topnews'));
+router.get('/test/headlines', (req, res) => res.render('news/headlines'));
+router.get('/test/article', (req, res) => res.render('news/fullarticle'));
+
 module.exports = router;
