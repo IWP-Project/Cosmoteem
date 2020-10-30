@@ -14,10 +14,14 @@ router.get('/', (req, res) => {
 router.get('/dashboard', auth.checkAuthenticated, async(req, res) => {
     console.log(req.session)
     const user = await User.findOne({ _id: req.session.passport.user }).populate('posts').lean()
-    const userposts = await user.posts
+    const userposts = await user.posts.sort((a, b) => {
+        return b.voteScore - a.voteScore
+    })
+    const posts = await Post.find({}).sort({ voteScore: 'desc' }).limit(3).lean()
     res.render('users/dashboard', {
         user,
-        userposts
+        userposts,
+        posts
     })
 })
 
@@ -37,8 +41,8 @@ router.get('/topnews', (req, res) => res.render('topnews'));
 router.get('/forums', (req, res) => res.render('forums'));
 
 // Testing Purpose for handlebars
-router.get('/test/topnews', (req, res) => {
-    res.render('news/topnews')
+router.get('/test/createathread', (req, res) => {
+    res.render('testing/createathread')
 })
 
 
