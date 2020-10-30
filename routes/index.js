@@ -7,7 +7,7 @@ const User = require('../models/User')
 
 // Homepage Route
 router.get('/', (req, res) => {
-    res.render('home')
+    res.render('home',{ layout:'home_layouts'})
 })
 
 // Dashboard for User
@@ -30,7 +30,7 @@ router.get('/profile', auth.checkAuthenticated, async(req, res) => {
     })
 });
 
-router.get('/home', (req, res) => res.render('home'));
+router.get('/home', (req, res) => res.render('home', { layout:'home_layouts'}));
 router.get('/photogallery', (req, res) => res.render('gallery'));
 router.get('/store', (req, res) => res.render('store'));
 router.get('/topnews', (req, res) => res.render('topnews'));
@@ -39,5 +39,16 @@ router.get('/forums', (req, res) => res.render('forums'));
 
 // Route to get all users from hard coded database
 router.get('/allusers', (req, res) => res.json(users));
+
+// Testing Purpose for handlebars
+router.get('/test/createathread', (req,res) => {
+    res.render('testing/createathread')
+})
+router.get('/test/loginnew', (req,res) => {
+    res.render('testing/loginnew')
+})
+router.get('/test/newnew', (req,res) => {
+    res.render('testing/newnew')
+})
 
 module.exports = router;
