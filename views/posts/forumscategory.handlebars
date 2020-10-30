@@ -1,0 +1,44 @@
+<div style="color: pink; font-family:fantasy; font-size:22px; padding-left: 10%;">
+    {{> errorMessage}}
+</div>
+<div class="dashboard-body wrapper">
+    <div class="dash-card">
+        <div class="dash-card-image"></div>
+        <div class="dash-card-text">
+            <form method="GET" action="/posts/all" style="float:left" class="formdone">
+                <input type="submit" value="Back" class="btn btn-primary">
+            </form>
+            <h1> {{tag}} </h1>
+        </div>
+    </div>
+    {{#if posts}}
+    <div class="new-flex-h">
+        {{#each posts as | post |}}
+        <div class="userbox">
+            <div class="ebg-user">
+                <img src="/images/userlogo.png" width="80px" height="50px">
+                <h4>{{post.author.username}}</h4>
+            </div>
+        </div>
+        <div class="threadbox">
+            <a href="/posts/post/{{post._id}}">
+                <div class="ebg-thread">
+                    <h3 style="color:whitesmoke">{{post.title}}<br></h3>
+                    <p style="color:whitesmoke">
+                        Score: {{post.voteScore}}
+                    </p>
+                </div>
+            </a>
+        </div>
+        {{/each}}
+
+    </div>
+    {{else}}
+    <h2 class="mt-4">No Threads on the Site Yet :(</h2>
+
+    <div class="forumsheading"
+        style="padding:10px;font-size:30px; background-color: rgba(175, 175, 175, 0.829); border-radius:20px;margin:auto 0;">
+        <a style="color:fuchsia;" href="/posts/newpost">Post a Thread...</a>
+    </div>
+    {{/if}}
+</div>
