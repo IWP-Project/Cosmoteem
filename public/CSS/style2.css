@@ -100,8 +100,8 @@ input[type="email"] {
 }
 
 input[type="submit"] {
-    background-color: rgb(102, 233, 215);
-    color: black;
+    background-color: black;
+    color: white;
     text-decoration: none;
     margin: 20px;
     margin-top: 30px;
@@ -110,9 +110,14 @@ input[type="submit"] {
     text-align: center;
 }
 
-input[type="reset"] {
-    background-color: rgb(102, 233, 215);
+input[type="submit"]:hover {
+    background-color: white;
     color: black;
+}
+
+input[type="reset"] {
+    background-color: black;
+    color: white;
     text-decoration: none;
     margin-top: 30px;
     margin-bottom: 20px;
@@ -121,6 +126,11 @@ input[type="reset"] {
     /* padding: 10px; */
     border-radius: 10px;
     text-align: center;
+}
+
+input[type="reset"]:hover {
+    background-color: white;
+    color: black;
 }
 
 div.form1-link {
@@ -137,14 +147,9 @@ div.submit-btn {
     margin-bottom: 20px;
 }
 
-input[type="submit"]:hover {
-    background-color: grey;
-    color: rgba(8, 239, 247, 0.678);
-}
-
-input[type="reset"]:hover {
-    background-color: grey;
-    color: rgba(8, 239, 247, 0.678);
+div.submit-btn input[type="submit"]:hover {
+    background-color: white;
+    color: black;
 }
 
 section.form1 h2 {
@@ -166,7 +171,7 @@ p.lead {
 }
 
 img.toplogo {
-    width: 16vw;
+    width: 18vw;
     height: 4vw;
 }
 
@@ -617,6 +622,8 @@ figure {
     cursor: pointer;
 }
 
+
+/* 
 .headlinesBox {
     padding: 10px;
     margin: 10px;
@@ -684,7 +691,7 @@ figure {
 .headlinesBox ul li:hover span {
     background: black;
     color: white;
-}
+} */
 
 .iframe-container1 {
     margin-top: 2%;
@@ -1625,6 +1632,10 @@ input[type="text"] {
     font-size: 18px;
 }
 
+.loginform input[type="text"]::placeholder {
+    color: grey;
+}
+
 .loginform input[type="password"] {
     box-sizing: border-box;
 }
@@ -1641,6 +1652,10 @@ input[type="text"] {
     margin-bottom: 5px;
 }
 
+.signupform input[type="text"]::placeholder {
+    color: grey;
+}
+
 .signupform input[type="password"] {
     box-sizing: border-box;
 }
@@ -1651,6 +1666,27 @@ input[type="text"] {
 
 .mainsignupform {
     justify-content: center;
+}
+
+.earth {
+    --d: 300px;
+    width: var(--d);
+    height: var(--d);
+    display: inline-block;
+    margin-top: 5%;
+    margin-bottom: 10%;
+    position: relative;
+    left: 38%;
+    border-radius: 50%;
+    box-shadow: -20px -20px 50px 2px #000 inset, 0 0 20px 2px #000;
+    background: url(/images/moon.jpeg) 0/auto 100%;
+    animation: spin 9s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        background-position: 200% 0;
+    }
 }
 
 @media all and (max-width: 900px) {
