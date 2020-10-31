@@ -162,7 +162,7 @@ router.post('/newpost', auth.checkAuthenticated, upload.single('cover'), async(r
             const uuser = await user.save()
             try {
                 req.flash('success_msg', 'You have created the Post successfully')
-                res.redirect("/posts/all")
+                res.redirect("/posts/post/" + newPost._id)
             } catch (e) {
                 if (newPost.attachments != null)
                     removeAttachment(newPost.attachments)

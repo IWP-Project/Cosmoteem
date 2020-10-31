@@ -74,75 +74,80 @@
     </section>
 </div> --}}
 
+
+<br>
 <div class="createathreadbody">
 
-<header>
-    <h1 style="color: ghostwhite; text-align:center; margin-top:5%;">Create a New Post</h1>
-</header>
+    <header>
+        <h1 style="color: ghostwhite; text-align:center; margin-top:5%;">Create a New Post</h1>
+    </header>
 
-<section class="container form1">
-    <div>
-         <div style="color: pink; font-family:fantasy; font-size:22px; padding-left: 10%;">
-            {{> errorMessage}}
-        </div>
-        <div class="group1">              
-                <input type="text" name="title"  placeholder="Thread Title" value={{ title }}>
+    <section class="container form1">
+        <div>
+            <div style="color: pink; font-family:fantasy; font-size:22px; padding-left: 10%;">
+                {{> errorMessage}}
             </div>
 
-            <hr style="width:80%;background-color:rgba(255, 255, 255, 0.562)">
-       
-        <form action="/posts/newpost" method="post" enctype="multipart/form-data">
-            <div class="group1">
-                <br>
-                <label for="tags">Which Category does your post belong in: </label><br>
-                <select name="tags" style="background-color: rgba(46, 46, 46, 0.959); color:white" value={{ tags }}>
-                    <option value="equipment">Astronomical Equipment</option>
-                    <option value="astronomy">Astronomy and Stargazing</option>
-                    <option value="community">Community</option>
-                    <option value="gaming">Astronomy Games</option>
-                    <option value="faq">FAQ</option>
-                </select>
-            </div>
-            <br>
-            <br>                    
-           
-            <div class="group1">
-            <section>
-            <div class="write">
-                <div class="left">
-                    <i class="fa fa-bold"></i>
-                    <i class="fa fa-underline"></i>
-                    <i class="fa fa-align-left"></i>
-                    <i class="fa fa-align-right"></i>
+
+            <form action="/posts/newpost" method="post" enctype="multipart/form-data">
+                <div class="group1">
+                    <input type="text" name="title" placeholder="Thread Title" value={{ title }}>
                 </div>
-                <div class="right">
-                    <i class="fa fa-link"></i>     
-                </div>               
-                
-            </div>
-            </section>
-            <textarea name="body" placeholder="Content" rows="7"  style="background-color: rgba(46, 46, 46, 0.959);color:white;">{{ body }}</textarea>
-            </div>
-            
+
+                <hr style="width:80%;background-color:rgba(255, 255, 255, 0.562)">
+                <div class="group1">
+                    <br>
+                    <label for="tags">Which Category does your post belong in: </label><br>
+                    <select name="tags" style="background-color: rgba(46, 46, 46, 0.959); color:white" value={{ tags }}>
+                        <option value="equipment">Astronomical Equipment</option>
+                        <option value="astronomy">Astronomy and Stargazing</option>
+                        <option value="community">Community</option>
+                        <option value="gaming">Astronomy Games</option>
+                        <option value="faq">FAQ</option>
+                    </select>
+                </div>
+                <br>
+                <br>
+
+                <div class="group1">
+                    <section>
+                        <div class="write">
+                            <div class="left">
+                                <i class="fa fa-bold"></i>
+                                <i class="fa fa-underline"></i>
+                                <i class="fa fa-align-left"></i>
+                                <i class="fa fa-align-right"></i>
+                            </div>
+                            <div class="right">
+                                <i class="fa fa-link"></i>
+                            </div>
+
+                        </div>
+                    </section>
+                    <textarea name="body" placeholder="Content" rows="7"
+                        style="background-color: rgba(46, 46, 46, 0.959);color:white;">{{ body }}</textarea>
+                </div>
 
 
 
 
-    
-            <div class="group1">
-                <div class="attachmemt">
-                <label for="body">Any Attachments to help others understand better?</label>         
-                <input type="file" name="cover" style="background-color: rgba(46, 46, 46, 0.959);"></div>
-            </div>
 
-             <hr style="width:80%;background-color:rgba(255, 255, 255, 0.562)">
-            <div class="captcha">
-            </div>
-            <div class="submit-btn">
-                <input style="background-color:black; color:white; margin-left:60%" class="btn" type="submit" value="Post">
-                <input style="background-color:black;color: white; " class="btn" type="reset" value="Clear">
-            </div>
-        </form>
-    </div>
-</section>
+
+                <div class="group1">
+                    <div class="attachmemt">
+                        <label for="body">Any Attachments to help others understand better?</label>
+                        <input type="file" name="cover" style="background-color: rgba(46, 46, 46, 0.959);"></div>
+                </div>
+
+                <hr style="width:80%;background-color:rgba(255, 255, 255, 0.562)">
+                <div class="captcha">
+                </div>
+                <div class="submit-btn">
+                    <input style="background-color:black; color:white; margin-left:60%" class="btn" type="submit"
+                        value="Post">
+                    <input style="background-color:black;color: white; " class="btn" type="reset" value="Clear">
+                </div>
+            </form>
+        </div>
+    </section>
 </div>

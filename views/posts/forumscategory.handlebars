@@ -5,7 +5,7 @@
     <div class="dash-card">
         <div class="dash-card-image"></div>
         <div class="dash-card-text">
-            <form method="GET" action="/posts/all" style="float:left" class="formdone">
+            <form method="GET" action="/forums" style="float:left" class="formdone">
                 <input type="submit" value="Back" class="btn btn-primary">
             </form>
             <h1> {{tag}} </h1>
@@ -16,7 +16,7 @@
         {{#each posts as | post |}}
         <div class="userbox">
             <div class="ebg-user">
-                <img src="/images/userlogo.png" width="80px" height="50px">
+                <img src="/images/userlogo-new.png" width="60px" height="60px">
                 <h4>{{post.author.username}}</h4>
             </div>
         </div>

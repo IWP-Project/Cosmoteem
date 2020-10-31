@@ -1,18 +1,27 @@
+<div>
+    <form method="GET" action="/forums" style="float:left" class="formdone">
+        <input type="submit" value="Back" class="btn btn-primary">
+    </form>
+</div>
+
 <div class="dashboard-body wrapper">
     <div class="new-flex-h">
         <div class="main-userbox">
             <div class="main-ebg-user">
-                <img style="flex-grow: 0" src="/images/userlogo.png" width="80px" height="50px">
+                <img style="flex-grow: 0" src="/images/userlogo-new.png" width="40px" height="40px">
                 <h4 style="flex-grow: 3">{{post.author.username}}</h4>
-                <div class="votebox">
+                <div class="votebox" style="text-align: center;">
                     <div>
                         <form class="vote-up" data-id="{{post._id}}">
-                            <button type="submit">Vote Up</button>
+                            {{!-- <button type="submit"><img src="/images/upvote-icon.png" alt="Vote Up"></button> --}}
+                            <input type="image" src="/images/upvote-icon.png" alt="Vote Up" width="100px"
+                                height="100px">
                         </form>
                     </div>
                     <div>
                         <form class="vote-down" data-id="{{post._id}}">
-                            <button type="submit">Vote Down</button>
+                            <input type="image" src="/images/downvote-icon.png" alt="Vote Up" width="100px"
+                                height="100px">
                         </form>
                     </div>
                     |Upvotes : {{post.voteScore}}
@@ -38,17 +47,18 @@
         {{#each postcomments}}
         <div class="main-userbox">
             <div class="comment-user">
-                <img src="/images/userlogo.png" width="80px" height="50px">
+                <img src="/images/userlogo-new.png" width="40px" height="40px">
                 <h5>{{this.author.username}}</h5>
-                <div class="votebox">
+                <div class="votebox" style="text-align: center;">
                     <div>
                         <form data-id="{{this._id}}">
-                            <button type="submit">Vote Up</button>
+                            <input type="image" src="/images/upvote-icon.png" alt="Vote Up" width="40px" height="40px">
                         </form>
                     </div>
                     <div>
-                        <form class="vote-down" data-id="{{this._id}}">
-                            <button type="submit">Vote Down</button>
+                        <form data-id="{{this._id}}">
+                            <input type="image" src="/images/downvote-icon.png" alt="Vote Up" width="40px"
+                                height="40px">
                         </form>
                     </div>
                     |Upvotes : {{this.voteScore}}
@@ -59,6 +69,9 @@
         <div class="main-threadbox">
             <div class="comment-content">
                 <p>{{this.body}}</p>
+                <br>
+                <hr>
+                <p style="float: right;">{{this.date}}</p>
             </div>
         </div>
         {{/each}}
@@ -66,7 +79,7 @@
         {{#if user}}
         <div class="main-userbox">
             <div class="comment-user">
-                <img src="/images/userlogo.png" width="80px" height="50px">
+                <img src="/images/userlogo-new.png" width="40px" height="40px">
                 <h5>{{user.username}}</h5>
             </div>
         </div>
