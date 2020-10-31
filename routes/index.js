@@ -64,4 +64,12 @@ router.get('/test/trydashboard', (req,res) => {
     res.render('testing/trydashboard')
 })
 
+router.get('/test/category', (req,res) => {
+    res.render('posts/forumscategory')
+})
+
+router.get('/test/thread', (req,res) => {
+    res.render('posts/thread')
+})
+
 module.exports = router;
