@@ -1,56 +1,96 @@
-<div style="color: pink; font-family:fantasy; font-size:22px; padding-left: 10%;">
-    {{> errorMessage}}
-</div>
-<div class="container card mt-4" style="text-align: center;">
-    <div style="text-align: left;">
-        <a href="">
-            <h5>{{post.author.username}}</h5>
-        </a>
-        <small><em>{{post.date}}</em></small>
-    </div>
+<div class="dashboard-body wrapper">
+    <div class="new-flex-h">
+        <div class="main-userbox">
+            <div class="main-ebg-user">
+                <img style="flex-grow: 0" src="/images/userlogo.png" width="80px" height="50px">
+                <h4 style="flex-grow: 3">{{post.author.username}}</h4>
+                <div class="votebox">
+                    <div>
+                        <form class="vote-up" data-id="{{post._id}}">
+                            <button type="submit">Vote Up</button>
+                        </form>
+                    </div>
+                    <div>
+                        <form class="vote-down" data-id="{{post._id}}">
+                            <button type="submit">Vote Down</button>
+                        </form>
+                    </div>
+                    |Upvotes : {{post.voteScore}}
 
-    <h2>{{post.title}}</h2>
-    <hr>
-    <p>{{post.body}}</p>
-    <hr>
-    <img style="max-width: 800px; max-height: 600px" src={{post.attachmentImgPath}}>
-    <br>
-    <form class="vote-up" data-id="{{post._id}}">
-        <button type="submit">Vote Up</button>
-    </form>
-    | Upvotes : {{post.voteScore}}
-    <form class="vote-down" data-id="{{post._id}}">
-        <button type="submit">Vote Down</button>
-    </form>
-</div>
-{{#each postcomments}}
-<div class="container card mt-4" style="text-align: center;">
-    <div style="text-align: left;">
-        <a href="">
-            <h5>{{this.author.username}}</h5>
-        </a>
-        <p>{{this.body}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="main-threadbox">
+            <div class="main-ebg-thread">
+                <h1 style="color:whitesmoke">{{post.title}}</h1><br>
+                <hr>
+                <p style="color:whitesmoke">
+                    {{post.body}}
+                    <br>
+                    <img style="max-width: 400px; max-height: 400px" src={{post.attachmentImgPath}}>
+                </p>
+                <hr>
+                <div style="float: right; margin:2%">{{post.date}}</div>
+            </div>
+        </div>
     </div>
-</div>
-<br>
-{{/each}}
-<br>
-{{#if user}}
-<div class="container card mt-4" style="text-align: center;">
-    <form action="/posts/post/{{post._id}}/comments" method="post">
-        <div class="group1">
-            <label for="body" style="color:black;text-align:left">Reply to the Thread</label>
-            <textarea class="form-control" name="body"></textarea>
+    <div class="new-flex-h">
+        {{#each postcomments}}
+        <div class="main-userbox">
+            <div class="comment-user">
+                <img src="/images/userlogo.png" width="80px" height="50px">
+                <h5>{{this.author.username}}</h5>
+                <div class="votebox">
+                    <div>
+                        <form data-id="{{this._id}}">
+                            <button type="submit">Vote Up</button>
+                        </form>
+                    </div>
+                    <div>
+                        <form class="vote-down" data-id="{{this._id}}">
+                            <button type="submit">Vote Down</button>
+                        </form>
+                    </div>
+                    |Upvotes : {{this.voteScore}}
+
+                </div>
+            </div>
         </div>
-        <div class="submit-btn">
-            <input style="background-color: rgba(149, 56, 236, 0.808)" class="btn" type="submit" value="Comment">
+        <div class="main-threadbox">
+            <div class="comment-content">
+                <p>{{this.body}}</p>
+            </div>
         </div>
-    </form>
+        {{/each}}
+
+        {{#if user}}
+        <div class="main-userbox">
+            <div class="comment-user">
+                <img src="/images/userlogo.png" width="80px" height="50px">
+                <h5>{{user.username}}</h5>
+            </div>
+        </div>
+        <div class="main-threadbox">
+            <div class="comment-content">
+                <form action="/posts/post/{{post._id}}/comments" method="post">
+                    <div>
+                        <label for="body">Write a comment...</label>
+                        <textarea class="form-control" name="body"></textarea>
+                    </div>
+                    <div class="submit-btn" style="float: right;">
+                        <input class="btn btn-primary" type="submit" value="Comment">
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+    {{else}}
+    <div style="text-align: center;">
+        <h1 class="ebg">
+            <a href="/users/login">Login to Comment!</a>
+        </h1>
+    </div>
+    {{/if}}
 </div>
-{{else}}
-<div class="container card mt-4" style="text-align: center;">
-    <h1>
-        <a href="/users/login">Login to Comment!</a>
-    </h1>
 </div>
-{{/if}}

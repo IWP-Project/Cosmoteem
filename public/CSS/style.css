@@ -1233,8 +1233,9 @@ hr {
 
 .main-ebg-thread p {
     margin: 5%;
-    max-width: auto;
+    max-width: 800px;
     word-wrap: break-word;
+    font-size: 20px;
 }
 
 .votebox {}
