@@ -7,21 +7,17 @@ const User = require('../models/User')
 
 // Homepage Route
 router.get('/', (req, res) => {
-    res.render('home',{ layout:'home_layouts'})
+    res.render('home')
 })
 
 // Dashboard for User
 router.get('/dashboard', auth.checkAuthenticated, async(req, res) => {
     console.log(req.session)
     const user = await User.findOne({ _id: req.session.passport.user }).populate('posts').lean()
-    const userposts = await user.posts.sort((a, b) => {
-        return b.voteScore - a.voteScore
-    })
-    const posts = await Post.find({}).sort({ voteScore: 'desc' }).limit(3).lean()
+    const userposts = await user.posts
     res.render('users/dashboard', {
         user,
-        userposts,
-        posts
+        userposts
     })
 })
 
@@ -34,30 +30,14 @@ router.get('/profile', auth.checkAuthenticated, async(req, res) => {
     })
 });
 
-router.get('/home', (req, res) => res.render('home', { layout:'home_layouts'}));
+router.get('/home', (req, res) => res.render('home'));
 router.get('/photogallery', (req, res) => res.render('gallery'));
 router.get('/store', (req, res) => res.render('store'));
 router.get('/topnews', (req, res) => res.render('topnews'));
 router.get('/forums', (req, res) => res.render('forums'));
 
-// Testing Purpose for handlebars
-router.get('/test/createathread', (req, res) => {
-    res.render('testing/createathread')
-})
-
 
 // Route to get all users from hard coded database
 router.get('/allusers', (req, res) => res.json(users));
-
-// Testing Purpose for handlebars
-router.get('/test/createathread', (req,res) => {
-    res.render('testing/createathread')
-})
-router.get('/test/loginnew', (req,res) => {
-    res.render('testing/loginnew')
-})
-router.get('/test/newnew', (req,res) => {
-    res.render('testing/newnew')
-})
 
 module.exports = router;

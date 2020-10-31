@@ -61,27 +61,6 @@ router.get('/post/:_id', async(req, res) => {
     }
 })
 
-// Thread View and comment GET route
-router.get('/thread/:_id', async(req, res) => {
-    try {
-        const post = await Post.findOne({ _id: req.params._id }).populate({ path: 'author comments', populate: { path: 'author' } }).lean({ virtuals: true })
-        const postcomments = await post.comments
-            // Find Logged in User
-        let user = false
-        if (req.isAuthenticated()) {
-            user = await User.findOne({ _id: req.session.passport.user }).lean()
-        }
-        res.render('posts/thread', {
-            post,
-            postcomments,
-            user
-        })
-    } catch (e) {
-        console.log(e)
-        res.redirect('/posts')
-    }
-})
-
 // All and Search Posts GET Route
 router.get('/all', auth.checkAuthenticated, async(req, res) => {
     try {
@@ -100,20 +79,6 @@ router.get('/all', auth.checkAuthenticated, async(req, res) => {
     } catch (e) {
         console.log(e)
         res.redirect('/')
-    }
-})
-
-// Route for Each Forum Category Page 
-router.get('/category/:name', async(req, res) => {
-    try {
-        const posts = await Post.find({ tags: req.params.name }).sort({ voteScore: 'desc' }).populate('author').lean()
-        const tag = req.params.name.toUpperCase()
-        res.render('posts/forumscategory', {
-            posts,
-            tag
-        })
-    } catch (e) {
-        console.log(e)
     }
 })
 
