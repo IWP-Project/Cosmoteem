@@ -69,6 +69,8 @@ router.get('/forums', async(req, res) => {
     })
 });
 
+router.get('/planetarium', (req, res) => res.render('planetarium'));
+
 // Testing Purpose for handlebars
 router.get('/test/createathread', (req, res) => {
     res.render('testing/createathread')
@@ -104,5 +106,6 @@ router.get('/test/category', (req, res) => {
 router.get('/test/thread', (req, res) => {
     res.render('posts/thread')
 })
+
 
 module.exports = router;

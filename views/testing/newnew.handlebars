@@ -1,0 +1,60 @@
+<header>
+    <h1 style="color: ghostwhite; text-align:center; margin-top:30px;margin-bottom:30px;">Join The Community made For & By Stargazers!</h1>
+</header>
+
+<!--Signup Form-->
+
+
+
+
+<div class="signup-body">
+    <div class="signup-card">
+        <div class="signup-card-text">
+            <section class="">
+                <form action="/users/new" method="POST">
+                    <div class="mainsignupform">
+                        <br>
+                        <h2>Sign-Up to create your Space!</h2>
+                    </div>
+                    <br>
+                    <br>
+                    <div style="color: pink; font-family:fantasy; font-size:22px; padding-left: 10%;">
+                        {{> errorMessage}}
+                    </div>
+                    <div class="signupform">
+
+                        <input type="text" name="firstName" placeholder="First Name" value={{user.firstName}}>
+                        <input type="text" name="lastName" placeholder="Last Name" value={{user.lastName}}>
+                    </div>
+                    <div class="signupform">
+
+                        <input type="email" name="email" placeholder="Email ID" value={{user.email}}>
+                    </div>
+                    <div class="signupform">
+
+                        <input type="text" name="username" placeholder="Username" value={{user.username}}>
+                    </div>
+                    <div class="signupform">
+
+                        <input type="password" name="password" placeholder="Password">
+                    </div>
+                    <div class="signupform">
+
+                        <input type="password" name="cpassword" placeholder="Confirm Password">
+                    </div>
+                    <br>
+                    <div class="signupform">
+                        <a href="/users/login" style="color: ghostwhite;">Already have an account? Click here.</a>
+                    </div>
+                    <div class="captcha">
+                    </div>
+                    <div class="submit-btn">
+                        <input class="btn" type="submit" value="Register">
+                        <input class="btn" type="reset" value="Reset">
+                    </div>
+                </form>
+            </section>
+        </div>
+        <div class="signup-card-image"></div>
+    </div>
+</div>

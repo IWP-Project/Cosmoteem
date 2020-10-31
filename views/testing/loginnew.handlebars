@@ -1,0 +1,49 @@
+<div class="headingtop">
+    <h1 style="color: ghostwhite; text-align:center; margin-top:30px;margin-bottom:30px;">Welcome Back, Bitgazer!</h1>
+</div>
+
+
+
+<div class="login-body">
+    <div class="login-card">
+        <div class="login-card-image"></div>
+        <div class="login-card-text">
+            <section class="">
+                <form action="/users/login" method="POST">
+                    <div class="mainloginform">
+                        <br>
+                        <h2>Log-In to access your Space!</h2><br><br>
+                    </div>
+                    <div style="color: pink; font-family:fantasy; font-size:22px; padding-left: 10%;">
+                        {{> errorMessage}}
+                    </div>
+                    <div class="loginform">
+                       
+                        <input type="text" name="username" placeholder="Username" style="color: grey;">
+                    </div>
+                    <br>
+                    <div class="loginform">
+                       
+                        <input type="password" name="password" placeholder="Password">
+                    </div>
+                    <div class="captcha">
+
+                    </div>
+                    <br>
+                    <div class=" loginform form1-link">
+                        <a href="/users/new" style="color: ghostwhite;">First time here? Click here.</a>
+                    </div>
+                    <br>
+                    <div class="submit-btn">
+                        <input class="btn" type="submit"
+                            value="Login">
+                    </div>
+                </form>
+            </section>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+
+<!--Login Form-->
