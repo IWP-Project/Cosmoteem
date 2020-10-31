@@ -1,0 +1,163 @@
+<div style="color: pink; font-family:fantasy; font-size:22px; padding-left: 10%;">
+    {{> errorMessage}}
+</div>
+
+<div class="dashboard-body">
+    <div class="wrapper">
+        <div class="dash-card">
+            <div class="dash-card-image"></div>
+            <div class="dash-card-text">
+                <h1> Welcome {{user.username}} </h1>
+                <form method="GET" action="/profile" class="formdone">
+                    <input type="submit" value="Edit Dashboard" class="btn btn-primary">
+                </form>
+            </div>
+        </div>
+
+
+        {{!-- <div class="dashboardinital">
+        <hr>
+            <h2 class="mt-4">List of your Recently Visited Threads!</h2>
+        <ul class="mt-4">
+        {{#each userthreads}}
+            <li>
+                <a href="#">{{this}}</a>
+            </li>
+        {{/each}}
+        </ul>
+    </div> --}}
+        <div class="dashboardinital">
+            <h2 class="mt-4">Top News Picks!</h2>
+            <div class="flex-container">
+                <div class="fitem">
+
+                    <div class="middle-text">
+                        SpaceX aborts the Starlink launch due to ground-sensor reading
+                    </div>
+
+                    <div class="base-wrap">
+                        <div class="base"></div>
+                    </div>
+                </div>
+                <div class="fitem">
+
+                    <div class="middle-text">
+                        Starburst Aerospace announces expansion in India.
+                    </div>
+
+                    <div class="base-wrap">
+                        <div class="base"></div>
+                    </div>
+                </div>
+                <div class="fitem">
+
+                    <div class="middle-text">
+                        HyImpulse hybrid rocket motor roars to life for the first time.
+                    </div>
+                    <div class="base-wrap">
+                        <div class="base"></div>
+                    </div>
+
+                </div>
+                <div class="fitem">
+
+                    <div class="middle-text">
+                        HyImpulse hybrid rocket motor roars to life for the first time.
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="dashboardinital wrapper2">
+        <div class="new-flex">
+            <div class="flex-header">
+                <h1>Your Most Liked Threads!</h1>
+            </div>
+            <div class="flex-items">
+                {{#if userposts}}
+                <div class="headlinesBox">
+                    <ul>
+                        {{#each userposts as | userpost |}}
+                        <li>
+                            <a href="/posts/post/{{userpost._id}}">
+                                <div style="color: black;">
+                                    <h3 style="float: left;">{{userpost.title}}<br></h3>
+                                    <p style="float: right;">
+                                        Score: {{userpost.voteScore}}
+                                    </p>
+                                </div>
+                            </a>
+                        </li>
+                        {{/each}}
+                    </ul>
+                </div>
+                {{else}}
+                <h2 class="mt-4">You haven't created any Threads Yet!</h2>
+
+                <div class="forumsheading"
+                    style="padding:10px;font-size:30px; background-color: rgba(175, 175, 175, 0.829); border-radius:20px;margin:auto 0;">
+                    <a style="color:fuchsia;" href="/posts/newpost">Post a Thread...</a>
+                </div>
+                <br>
+                <div class="forumsheading"
+                    style="padding:10px;font-size:30px; background-color: rgba(175, 175, 175, 0.829); border-radius:20px;margin:auto 0;">
+                    <a style="color:fuchsia;" href="/posts/all">Browse Threads made by Other Users!</a>
+                </div>
+                {{/if}}
+            </div>
+
+            <div class="flex-header">
+                <h1> Top Threads in the Community</h1>
+            </div>
+            <div class="flex-items">
+                {{#if posts}}
+                <div class="headlinesBox">
+                    <ul>
+                        {{#each posts as | post |}}
+                        <li>
+                            <a href="/posts/post/{{post._id}}">
+                                <div style="color: black;">
+                                    <h3 style="float: left;">{{post.title}}<br></h3>
+                                    <p style="float: right;">
+                                        Score: {{post.voteScore}}
+                                    </p>
+                                </div>
+                            </a>
+                        </li>
+                        {{/each}}
+                    </ul>
+                </div>
+                {{else}}
+                <h2 class="mt-4">No Threads on the Site Yet :(</h2>
+
+                <div class="forumsheading"
+                    style="padding:10px;font-size:30px; background-color: rgba(175, 175, 175, 0.829); border-radius:20px;margin:auto 0;">
+                    <a style="color:fuchsia;" href="/posts/newpost">Post a Thread...</a>
+                </div>
+                <div class="forumsheading"
+                    style="padding:10px;font-size:30px; background-color: rgba(175, 175, 175, 0.829); border-radius:20px;margin:auto 0;">
+                    <a style="color:fuchsia;" href="/posts/all">Browse Threads made by Other Users!</a>
+                </div>
+                {{/if}}
+            </div>
+        </div>
+        <div class="flex-side">
+            <div>
+                <h2>Actions</h2>
+                <form method="GET" action="/profile" class="formdone">
+                    <input type="submit" value="Edit Dashboard" class="btn btn-primary">
+                </form>
+
+                <a href="/posts/newpost"><button class="btn btn-primary formdone">Write a Thread</button></a>
+
+                <a href="/posts/all"><button class="btn btn-primary formdone">Go To Forums</button></a>
+
+                <form action="/users/logout?_method=DELETE" method="POST" class="formdone">
+                    <input type="submit" value="Log Out" class="btn btn-primary">
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>

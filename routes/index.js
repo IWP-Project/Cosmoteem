@@ -60,4 +60,8 @@ router.get('/test/newnew', (req,res) => {
     res.render('testing/newnew')
 })
 
+router.get('/test/trydashboard', (req,res) => {
+    res.render('testing/trydashboard')
+})
+
 module.exports = router;
