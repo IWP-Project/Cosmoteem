@@ -8,7 +8,6 @@ function checkAuthenticated(req, res, next) {
 }
 
 // Check NOT Authentication
-
 function checkNotAuthenticated(req, res, next) {
     if (req.isAuthenticated()) {
         req.flash('error_msg', 'You are already Logged in!')
