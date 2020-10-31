@@ -39,6 +39,7 @@ router.get('/photogallery', (req, res) => res.render('gallery'));
 router.get('/store', (req, res) => res.render('store'));
 router.get('/topnews', (req, res) => res.render('topnews'));
 router.get('/forums', (req, res) => res.render('forums'));
+router.get('/planetarium', (req, res) => res.render('planetarium'));
 
 // Testing Purpose for handlebars
 router.get('/test/createathread', (req, res) => {
@@ -75,5 +76,6 @@ router.get('/test/category', (req, res) => {
 router.get('/test/thread', (req, res) => {
     res.render('posts/thread')
 })
+
 
 module.exports = router;
