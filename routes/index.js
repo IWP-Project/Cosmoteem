@@ -53,6 +53,7 @@ router.get('/forums', async(req, res) => {
     const gposts = await Post.find({ tags: 'gaming' }).populate('author').sort({ voteScore: 'desc' }).limit(5).lean()
     const fposts = await Post.find({ tags: 'faq' }).populate('author').sort({ voteScore: 'desc' }).limit(5).lean()
     const eposts = await Post.find({ tags: 'equipment' }).populate('author').sort({ voteScore: 'desc' }).limit(5).lean()
+    const rposts = await Post.find({ tags: 'review' }).populate('author').sort({ voteScore: 'desc' }).limit(5).lean()
     const users = await User.find({}).lean()
     const posts = await Post.find({}).lean()
     const ulen = users.length
@@ -63,6 +64,7 @@ router.get('/forums', async(req, res) => {
         gposts,
         fposts,
         eposts,
+        rposts,
         users,
         ulen,
         plen

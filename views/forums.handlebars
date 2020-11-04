@@ -131,20 +131,28 @@
           </div>
         </ul>
       </li>
-      {{!-- <li class="accordion__item">
-					<a href="#" class="accordion__link">OUR COMMUNITY</a>
-					<ul class="sub-accordion">
-					<div class="forumsContent">        
-        <ul>
-            <li><a href="#"><span>1</span>NASA reveals retro 'worm' logo painted on moon-bound Artemis rocket.</a></li>
-            <li><a href="#"><span>2</span>NASA reveals retro 'worm' logo painted on moon-bound Artemis rocket.</a></li>
-            <li><a href="#"><span>3</span>NASA reveals retro 'worm' logo painted on moon-bound Artemis rocket.</a></li>
-            <li><a href="#"><span>4</span>NASA reveals retro 'worm' logo painted on moon-bound Artemis rocket.</a></li>
-            
+      <li class="accordion__item">
+        <a href="#" class="accordion__link">REVIEWS</a>
+        <ul class="sub-accordion">
+          <div class="forumsContent">
+            <ul>
+              <a href="posts/category/review">
+                <h3 style="color: black;">Go to Reviews Page -> </h3>
+              </a>
+              {{#each rposts}}
+              <li>
+                <a href="/posts/post/{{this._id}}">
+                  <h3 style="color:whitesmoke">{{this.title}}<br></h3>
+                  <p>Creator: {{this.author.username}}</p>
+                  <p>Date: {{this.date}}</p>
+                  <p>Upvotes: {{this.voteScore}}</p>
+                </a>
+              </li>
+              {{/each}}
+            </ul>
+          </div>
         </ul>
-    </div>
-					</ul>
-				</li> --}}
+      </li>
     </ul>
 
   </article>
