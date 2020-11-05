@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 const Post = require('../models/Post');
 const auth = require('../config/auth')
-const User = require('../models/user')
+const User = require('../models/User')
 
 // Homepage Route
 router.get('/', (req, res) => {
