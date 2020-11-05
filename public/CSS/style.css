@@ -1290,7 +1290,7 @@ hr {
     justify-content: center;
     display: grid;
     grid-template-columns: 100%;
-    min-width: 1280px;
+    min-width: 80%;
     grid-template-rows: 240px 100px;
     grid-template-areas: "image" "text";
     border-radius: 2px;
