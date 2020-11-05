@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const bcrypt = require('bcryptjs')
 
 // Load User model
-//const User = require('../models/User')
+const User = require('../models/User')
 
 function initialize(passport) {
     const authenticateUser = async(username, password, done) => {
