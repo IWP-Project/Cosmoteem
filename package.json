@@ -23,6 +23,7 @@
     "dependencies": {
         "bcryptjs": "^2.4.3",
         "connect-flash": "^0.1.1",
+        "core-util-is": "^1.0.2",
         "ejs": "^3.1.5",
         "express": "^4.17.1",
         "express-ejs-layouts": "^2.5.0",
@@ -38,7 +39,8 @@
         "pg": "^8.4.0",
         "pg-connection-string": "^2.4.0",
         "sequelize": "^6.3.5",
-        "uuid": "^8.3.0"
+        "uuid": "^8.3.0",
+        "webpack-dev-server": "^3.11.0"
     },
     "devDependencies": {
         "dotenv": "^8.2.0",
