@@ -1,3 +1,7 @@
+<div style="color: pink; font-family:fantasy; font-size:22px; padding-left: 10%;">
+    {{> errorMessage}}
+</div>
+
 <div>
     <form method="GET" action="/forums" style="float:left" class="formdone">
         <input type="submit" value="Back" class="btn btn-primary">
@@ -24,7 +28,7 @@
                                 height="100px">
                         </form>
                     </div>
-                    |Upvotes : {{post.voteScore}}
+                    Upvotes : {{post.voteScore}}
 
                 </div>
             </div>
@@ -39,7 +43,21 @@
                     <img style="max-width: 400px; max-height: 400px" src={{post.attachmentImgPath}}>
                 </p>
                 <hr>
-                <div style="float: right; margin:2%">{{post.date}}</div>
+                <div style="float: left;">
+                    {{#if ifauthor}}
+                    <div class="new-flex-h">
+                        <form action="/posts/post/edit/{{post._id}}" method="get">
+                            <button class="btn btn-primary" name="edit">Edit Post</button>
+                        </form>
+                        <form action="/posts/post/{{post._id}}/remove?_method=DELETE" method="post">
+                            <button class="btn btn-danger" name="delete">Delete Post</button>
+                        </form>
+                    </div>
+                    {{/if}}
+                </div>
+                <div style="float: right; margin:2%">
+                    {{post.date}}
+                </div>
             </div>
         </div>
     </div>
@@ -61,7 +79,7 @@
                                 height="40px">
                         </form>
                     </div>
-                    |Upvotes : {{this.voteScore}}
+                    Upvotes : {{this.voteScore}}
 
                 </div>
             </div>

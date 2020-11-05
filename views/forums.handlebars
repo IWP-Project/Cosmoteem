@@ -1,3 +1,6 @@
+<div style="color: pink; font-family:fantasy; font-size:22px; padding-left: 10%;">
+  {{> errorMessage}}
+</div>
 <div class="forumsbody">
   <div class="dashboard2-body">
     <div class="dash2-card">
@@ -20,9 +23,11 @@
               <a href="posts/category/community">
                 <h3 style="color: black;">Go to Community Page -> </h3>
               </a>
-              <li><a href="#"><span>1</span><h3>
-                Welcome
-              </h3></a>
+              <li><a href="#"><span>1</span>
+                  <h3>
+                    Welcome
+                  </h3>
+                </a>
                 <p>Creator: Admin</p>
                 <p>Date: 2020-10-06</p>
                 <p>Upvotes: 1000</p>
@@ -166,11 +171,11 @@
         <h3>Members online</h3>
         <br>
         {{#each users}}
-          <p>
-            <li>
-              {{this.username}}
-            </li>
-          </p>
+        <p>
+          <li>
+            {{this.username}}
+          </li>
+        </p>
         {{/each}}
       </div>
     </div>
@@ -178,7 +183,7 @@
     <br>
     <div class="forumcardcolumn">
       <div class="forumcard">
-        <h4>Forum statistics</h4>
+        <h5>Forum statistics</h5>
         <br>
         <p>Total threads: {{plen}}</p>
         <p>Total members: {{ulen}}</p>
