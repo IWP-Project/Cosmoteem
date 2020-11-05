@@ -40,11 +40,11 @@
         "pg-connection-string": "^2.4.0",
         "sequelize": "^6.3.5",
         "uuid": "^8.3.0",
+        "handlebars": "^4.5.0",
         "webpack-dev-server": "^3.11.0"
     },
     "devDependencies": {
         "dotenv": "^8.2.0",
-        "handlebars": "^4.5.0",
         "nodemon": "^2.0.4"
     }
 }
