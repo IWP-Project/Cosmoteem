@@ -2,7 +2,7 @@ const express = require('express');
 const { parse } = require('path');
 const uuid = require('uuid');
 const router = express.Router();
-const User = require('../../models/User');
+const User = require('../../models/user');
 const Post = require('../../models/Post');
 const bcrypt = require('bcryptjs');
 
