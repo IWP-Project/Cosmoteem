@@ -411,10 +411,6 @@
         margin: 5px;
     }
     
-    .cardnews:hover {
-        box-shadow: 10px 4px 8px 0 rgba(0, 0, 0, 0.315);
-    }
-    
     .cardnews {
         box-shadow: 0 4px 8px 0 rgba(43, 42, 42, 0.514);
         max-width: 300px;
@@ -423,9 +419,13 @@
         text-align: center;
         font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
         padding: 5px;
-        background-color: rgba(27, 27, 27, 0.801);
+        background-color: rgba(41, 41, 41, 0.932);
         color: ghostwhite;
         /* transition: all .5s ease-in-out; */
+    }
+    
+    .cardnews:hover {
+        box-shadow: 10px 4px 8px 0 rgba(0, 0, 0, 0.315);
     }
     
     .cardnews button {
@@ -1176,7 +1176,7 @@
     }
     
     .new-topnewsheader {
-        background: black;
+        background: #353535f6;
         box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9);
         padding: 1em;
         color: ghostwhite;
