@@ -111,6 +111,19 @@ router.get('/newpost', auth.checkAuthenticated, async(req, res) => {
     }
 })
 
+// Create REVIEW Post GET route
+router.get('/newpost/review', auth.checkAuthenticated, async(req, res) => {
+    try {
+        rtag = "review"
+        res.render('posts/newpost', {
+            post: new Post(),
+            rtag
+        })
+    } catch {
+        res.redirect('/forums')
+    }
+})
+
 // Create Thread POST Route
 router.post('/newpost', auth.checkAuthenticated, upload.single('cover'), async(req, res) => {
     const fileName = req.file != null ? req.file.filename : null

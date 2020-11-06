@@ -99,6 +99,9 @@
                     <br>
                     <label for="tags">Which Category does your post belong in: </label><br>
                     <select name="tags" style="background-color: rgba(46, 46, 46, 0.959); color:white" value={{ tags }}>
+                        {{#if rtag}}
+                        <option value ="{{ rtag }}" selected>{{rtag}}</option>
+                        {{/if}}
                         <option value="equipment">Astronomical Equipment</option>
                         <option value="astronomy">Astronomy and Stargazing</option>
                         <option value="community">Community</option>
