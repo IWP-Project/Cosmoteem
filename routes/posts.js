@@ -251,14 +251,10 @@ router.put('/post/edit/:_id', auth.checkAuthenticated, async(req, res) => {
 // Delete a Post using DELETE
 router.delete('/post/:_id/remove?', auth.checkAuthenticated, async(req, res) => {
     // Delete post from database
-    console.log("reached")
     try {
-        console.log("reached")
-
         const post = await Post.findOne({ _id: req.params._id }).populate('author').lean()
         console.log(post.author._id)
         if (req.session.passport.user == post.author._id) {
-            console.log("reached")
             const upost = await Post.findByIdAndDelete({ _id: req.params._id });
             const user = await User.updateOne({ _id: post.author._id }, { $pull: { 'posts': post._id } })
             req.flash('success_msg', 'Post has been successfully deleted!')
