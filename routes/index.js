@@ -47,6 +47,28 @@ router.get('/news/article', async(req, res) => {
     res.render('news/fullarticle')
 })
 
+router.get('/search', async(req, res) => {
+    try {
+        const searchPostOptions = {}
+        const searchUserOptions = {}
+        if (req.query.title !== null && req.query.title !== '') {
+            searchPostOptions.title = new RegExp(req.query.title, 'i')
+            searchUserOptions.username = new RegExp(req.query.title, 'i')
+        }
+        const users = await User.find(searchUserOptions).sort({ 'posts': 'desc' })
+        const posts = await Post.find(searchPostOptions).sort({ 'voteScore': 'desc' }).populate('author')
+        res.render('search', {
+            posts: posts.map(post => post.toJSON()),
+            searchPostOptions: req.query,
+            searchUserOptions: req.query,
+            users: users.map(user => user.toJSON())
+        })
+    } catch (e) {
+        console.log(e)
+        res.redirect('/')
+    }
+})
+
 router.get('/forums', async(req, res) => {
     const cposts = await Post.find({ tags: 'community' }).populate('author').sort({ voteScore: 'desc' }).limit(5).lean()
     const aposts = await Post.find({ tags: 'astronomy' }).populate('author').sort({ voteScore: 'desc' }).limit(5).lean()

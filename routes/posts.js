@@ -155,9 +155,7 @@ router.post('/newpost', auth.checkAuthenticated, upload.single('cover'), async(r
     } else {
         try {
             const post = await newPost.save()
-            const user = await User.findOne({ _id: req.session.passport.user })
-            user.posts.push(newPost._id)
-            const uuser = await user.save()
+            const user = await User.findByIdAndUpdate({ _id: req.session.passport.user }, { $push: { 'posts': newPost._id }, $inc: { 'postLength': 1 } })
             try {
                 req.flash('success_msg', 'You have created the Post successfully')
                 res.redirect("/posts/post/" + newPost._id)
@@ -256,7 +254,7 @@ router.delete('/post/:_id/remove?', auth.checkAuthenticated, async(req, res) => 
         console.log(post.author._id)
         if (req.session.passport.user == post.author._id) {
             const upost = await Post.findByIdAndDelete({ _id: req.params._id });
-            const user = await User.updateOne({ _id: post.author._id }, { $pull: { 'posts': post._id } })
+            const user = await User.findByIdAndUpdate({ _id: post.author._id }, { $pull: { 'posts': post._id }, $inc: { 'postLength': -1 } })
             req.flash('success_msg', 'Post has been successfully deleted!')
             res.redirect('/forums')
         } else {
