@@ -1238,8 +1238,6 @@ hr {
     font-size: 20px;
 }
 
-.votebox {}
-
 .comment-user {
     background-color: rgba(34, 34, 34, 0.884);
     display: flex;
@@ -1320,6 +1318,8 @@ hr {
     float: right;
     margin: 0px 100px 0px 0px;
 }
+
+.search-dropdown {}
 
 @media (max-width: 768px) {
     .flex-container {
