@@ -30,6 +30,7 @@
         "express-flash": "0.0.2",
         "express-handlebars": "^5.1.0",
         "express-session": "^1.17.1",
+        "handlebars": "^4.5.0",
         "method-override": "^3.0.0",
         "mongoose": "^5.10.7",
         "mongoose-lean-virtuals": "^0.7.2",
@@ -38,9 +39,9 @@
         "passport-local": "^1.0.0",
         "pg": "^8.4.0",
         "pg-connection-string": "^2.4.0",
+        "rss-parser": "^3.9.0",
         "sequelize": "^6.3.5",
         "uuid": "^8.3.0",
-        "handlebars": "^4.5.0",
         "webpack-dev-server": "^3.11.0"
     },
     "devDependencies": {
