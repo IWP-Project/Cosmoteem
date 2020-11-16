@@ -15,6 +15,12 @@ const flash = require('connect-flash')
 const session = require('express-session')
 const bcrypt = require('bcryptjs')
 const methodOverride = require('method-override')
+const cron = require('node-cron')
+
+const rss = require('./config/rss')
+cron.schedule('* */6 * * *', rss.parse)
+
+
 
 // Mongo DB Config
 const mongoose = require('mongoose')
