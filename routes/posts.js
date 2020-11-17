@@ -47,38 +47,23 @@ router.get('/post/:_id', async(req, res) => {
         const postcomments = await post.comments
             // Find Logged in User
         let user = false
+        let ifauthor = 0
+        const postid = post.author._id
         if (req.isAuthenticated()) {
             user = await User.findOne({ _id: req.session.passport.user }).lean()
+            if (postid == req.session.passport.user) {
+                ifauthor = 1
+            }
         }
         res.render('posts/post', {
             post,
             postcomments,
-            user
+            user,
+            ifauthor
         })
     } catch (e) {
         console.log(e)
-        res.redirect('/posts')
-    }
-})
-
-// Thread View and comment GET route
-router.get('/thread/:_id', async(req, res) => {
-    try {
-        const post = await Post.findOne({ _id: req.params._id }).populate({ path: 'author comments', populate: { path: 'author' } }).lean({ virtuals: true })
-        const postcomments = await post.comments
-            // Find Logged in User
-        let user = false
-        if (req.isAuthenticated()) {
-            user = await User.findOne({ _id: req.session.passport.user }).lean()
-        }
-        res.render('posts/thread', {
-            post,
-            postcomments,
-            user
-        })
-    } catch (e) {
-        console.log(e)
-        res.redirect('/posts')
+        res.redirect('/forums')
     }
 })
 
@@ -122,7 +107,20 @@ router.get('/newpost', auth.checkAuthenticated, async(req, res) => {
     try {
         res.render('posts/newpost', { post: new Post() })
     } catch {
-        res.redirect('/posts')
+        res.redirect('/forums')
+    }
+})
+
+// Create REVIEW Post GET route
+router.get('/newpost/review', auth.checkAuthenticated, async(req, res) => {
+    try {
+        rtag = "review"
+        res.render('posts/newpost', {
+            post: new Post(),
+            rtag
+        })
+    } catch {
+        res.redirect('/forums')
     }
 })
 
@@ -157,12 +155,10 @@ router.post('/newpost', auth.checkAuthenticated, upload.single('cover'), async(r
     } else {
         try {
             const post = await newPost.save()
-            const user = await User.findOne({ _id: req.session.passport.user })
-            user.posts.push(newPost._id)
-            const uuser = await user.save()
+            const user = await User.findByIdAndUpdate({ _id: req.session.passport.user }, { $push: { 'posts': newPost._id }, $inc: { 'postLength': 1 } })
             try {
                 req.flash('success_msg', 'You have created the Post successfully')
-                res.redirect("/posts/all")
+                res.redirect("/posts/post/" + newPost._id)
             } catch (e) {
                 if (newPost.attachments != null)
                     removeAttachment(newPost.attachments)
@@ -175,6 +171,101 @@ router.post('/newpost', auth.checkAuthenticated, upload.single('cover'), async(r
             console.log(err)
         }
 
+    }
+})
+
+// Edit Thread GET Route
+router.get('/post/edit/:_id', auth.checkAuthenticated, async(req, res) => {
+    try {
+        const post = await Post.findOne({ _id: req.params._id }).populate({ path: 'author comments', populate: { path: 'author' } }).lean({ virtuals: true })
+        if (req.session.passport.user == post.author._id) {
+            res.render('posts/editpost', {
+                post
+            })
+        } else {
+            req.flash('This is not your thread to edit! If you think this is a mistake, contact us.')
+            res.redirect('/forums')
+        }
+    } catch (e) {
+        console.log(e)
+        res.redirect('/forums')
+    }
+})
+
+// Edit Thread PUT Route
+router.put('/post/edit/:_id', auth.checkAuthenticated, async(req, res) => {
+    console.log("reached")
+    const { tags, title, body } = req.body
+    const post = await Post.findOne({ _id: req.params._id })
+    console.log(post)
+    console.log(title, tags, body)
+    const newPost = new Post({
+        _id: post._id,
+        tags,
+        title,
+        author: req.session.passport.user,
+        attachments: post.attachments,
+        body,
+        upVotes: post.upVotes,
+        downVotes: post.downVotes,
+        voteScore: post.voteScore,
+        comments: post.comments
+    })
+    console.log(newPost)
+    errors = []
+        // Check for all fields
+    if (!title || !body)
+        errors.push({ msg: 'Please fill in the title and/or the body!' })
+        //Validation doesn't pass
+    if (errors.length > 0) {
+        if (newPost.attachments != null)
+            res.render('posts/editpost', {
+                title,
+                body,
+                errorMessage: errors
+            })
+    } else {
+        try {
+            console.log("rached")
+            const upost = await Post.findOneAndUpdate({ _id: newPost._id }, { $set: newPost }, { useFindAndModify: false })
+            await upost.save()
+            try {
+                req.flash('success_msg', 'You have edited the Post successfully')
+                res.redirect("/posts/post/" + req.params._id)
+            } catch (e) {
+                console.log(e)
+                req.flash('error_msg', 'Something Went wrong while editing the post')
+                res.redirect('posts/post/edit' + req.params._id)
+            }
+        } catch (err) {
+            req.flash('error_msg', 'Something Went wrong while editing the post')
+            res.redirect('posts/post/edit' + req.params._id)
+            console.log(err)
+        }
+
+    }
+})
+
+// Delete a Post using DELETE
+router.delete('/post/:_id/remove?', auth.checkAuthenticated, async(req, res) => {
+    // Delete post from database
+    try {
+        const post = await Post.findOne({ _id: req.params._id }).populate('author').lean()
+        console.log(post.author._id)
+        if (req.session.passport.user == post.author._id) {
+            const upost = await Post.findByIdAndDelete({ _id: req.params._id });
+            const user = await User.findByIdAndUpdate({ _id: post.author._id }, { $pull: { 'posts': post._id }, $inc: { 'postLength': -1 } })
+            req.flash('success_msg', 'Post has been successfully deleted!')
+            res.redirect('/forums')
+        } else {
+            req.flash('error_msg', 'You are not the owner of the post!')
+            res.redirect('/posts/post/' + req.params._id)
+        }
+
+    } catch (e) {
+        console.log(e)
+        req.flash('error_msg', 'Post could not be deleted!')
+        res.redirect('/posts/post/' + req.params._id)
     }
 
 })

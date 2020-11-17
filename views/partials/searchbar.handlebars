@@ -1,0 +1,20 @@
+<header>
+    <!-- navigation-->
+    <nav class="navbar navbar-expand-md navbar-dark text-light" style="margin:0;">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto" style="color: black;">
+                    <li>
+                        <form action="/search" method="get">
+                            <input type="text" name="title" 
+                                style="background:transparent;border-style:solid; color:floralwhite"
+                                placeholder="Search" value={{searchPostOptions.title}}>
+                            <button class="btn btn-primary formdone" style="margin:0 0 3px 0;padding:18px;" type="submit">Search</button>
+                            <div id="myDropdown" class="search-dropdown"></div>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>

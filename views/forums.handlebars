@@ -1,3 +1,6 @@
+<div style="color: pink; font-family:fantasy; font-size:22px; padding-left: 10%;">
+  {{> errorMessage}}
+</div>
 <div class="forumsbody">
   <div class="dashboard2-body">
     <div class="dash2-card">
@@ -17,48 +20,50 @@
         <ul class="sub-accordion">
           <div class="forumsContent">
             <ul>
-              <li><a href="#"><span>1</span>Welcome.</a>
+              <a href="posts/category/community">
+                <h3 style="color: black;">Go to Community Page -> </h3>
+              </a>
+              <li><a href="#"><span>1</span>
+                  <h3>
+                    Welcome
+                  </h3>
+                </a>
                 <p>Creator: Admin</p>
                 <p>Date: 2020-10-06</p>
                 <p>Upvotes: 1000</p>
               </li>
-              <li><a href="#"><span>2</span>NASA reveals retro 'worm' logo painted on moon-bound Artemis rocket.</a>
+              {{#each cposts}}
+              <li>
+                <a href="/posts/post/{{this._id}}">
+                  <h3 style="color:whitesmoke">{{this.title}}<br></h3>
+                  <p>Creator: {{this.author.username}}</p>
+                  <p>Date: {{this.date}}</p>
+                  <p>Upvotes: {{this.voteScore}}</p>
+                </a>
               </li>
-              <li><a href="#"><span>3</span>NASA reveals retro 'worm' logo painted on moon-bound Artemis rocket.</a>
-              </li>
-              <li><a href="#"><span>4</span>NASA reveals retro 'worm' logo painted on moon-bound Artemis rocket.</a>
-              </li>
-
+              {{/each}}
             </ul>
           </div>
         </ul>
       </li>
       <li class="accordion__item">
-        <a href="#" class="accordion__link">LAUNCHES</a>
+        <a href="#" class="accordion__link">ASTRONOMY AND STARGAZING</a>
         <ul class="sub-accordion">
           <div class="forumsContent">
             <ul>
-              <li><a href="#"><span>1</span>Tiny moonbound spacecrafts have very big goals</a>
-                <p>Creator: Sanjana</p>
-                <p>Date: 2020-10-06</p>
-                <p>Upvotes: 900</p>
+              <a href="posts/category/astronomy">
+                <h3 style="color: black;">Go to Astronomy Page -> </h3>
+              </a>
+              {{#each aposts}}
+              <li>
+                <a href="/posts/post/{{this._id}}">
+                  <h3 style="color:whitesmoke">{{this.title}}<br></h3>
+                  <p>Creator: {{this.author.username}}</p>
+                  <p>Date: {{this.date}}</p>
+                  <p>Upvotes: {{this.voteScore}}</p>
+                </a>
               </li>
-              <li><a href="#"><span>2</span>NASA reveals retro worm logo painted on moon-bound Artemis rocket</a>
-                <p>Creator: Anurag</p>
-                <p>Date: 2020-10-06</p>
-                <p>Upvotes: 890</p>
-              </li>
-              <li><a href="#"><span>3</span>NASA reveals retro 'worm' logo painted on moon-bound Artemis rocket.</a>
-                <p>Creator: Anurag</p>
-                <p>Date: 2020-10-06</p>
-                <p>Upvotes: 890</p>
-              </li>
-              <li><a href="#"><span>4</span>NASA reveals retro 'worm' logo painted on moon-bound Artemis rocket.</a>
-                <p>Creator: Anurag</p>
-                <p>Date: 2020-10-06</p>
-                <p>Upvotes: 890</p>
-              </li>
-
+              {{/each}}
             </ul>
           </div>
         </ul>
@@ -68,33 +73,19 @@
         <ul class="sub-accordion">
           <div class="forumsContent">
             <ul>
-              <li><a href="#"><span>1</span>NASA reveals retro 'worm' logo painted on moon-bound Artemis rocket.</a>
+              <a href="posts/category/equipment">
+                <h3 style="color: black;">Go to Equipment Page -> </h3>
+              </a>
+              {{#each eposts}}
+              <li>
+                <a href="/posts/post/{{this._id}}">
+                  <h3 style="color:whitesmoke">{{this.title}}<br></h3>
+                  <p>Creator: {{this.author.username}}</p>
+                  <p>Date: {{this.date}}</p>
+                  <p>Upvotes: {{this.voteScore}}</p>
+                </a>
               </li>
-              <li><a href="#"><span>2</span>NASA reveals retro 'worm' logo painted on moon-bound Artemis rocket.</a>
-              </li>
-              <li><a href="#"><span>3</span>NASA reveals retro 'worm' logo painted on moon-bound Artemis rocket.</a>
-              </li>
-              <li><a href="#"><span>4</span>NASA reveals retro 'worm' logo painted on moon-bound Artemis rocket.</a>
-              </li>
-
-            </ul>
-          </div>
-        </ul>
-      </li>
-      <li class="accordion__item">
-        <a href="#" class="accordion__link">STARGAZING</a>
-        <ul class="sub-accordion">
-          <div class="forumsContent">
-            <ul>
-              <li><a href="#"><span>1</span>NASA reveals retro 'worm' logo painted on moon-bound Artemis rocket.</a>
-              </li>
-              <li><a href="#"><span>2</span>NASA reveals retro 'worm' logo painted on moon-bound Artemis rocket.</a>
-              </li>
-              <li><a href="#"><span>3</span>NASA reveals retro 'worm' logo painted on moon-bound Artemis rocket.</a>
-              </li>
-              <li><a href="#"><span>4</span>NASA reveals retro 'worm' logo painted on moon-bound Artemis rocket.</a>
-              </li>
-
+              {{/each}}
             </ul>
           </div>
         </ul>
@@ -104,37 +95,69 @@
         <ul class="sub-accordion">
           <div class="forumsContent">
             <ul>
-              <li><a href="#"><span>1</span>Monopoly, Battleship and Trouble in space! Hasbros Space Capsule games land
-                  at Target.</a>
-                <p>Creator: Sneha</p>
-                <p>Date: 2020-10-06</p>
-                <p>Upvotes: 590</p>
+              <a href="posts/category/gaming">
+                <h3 style="color: black;">Go to Gaming Page -> </h3>
+              </a>
+              {{#each gposts}}
+              <li>
+                <a href="/posts/post/{{this._id}}">
+                  <h3 style="color:whitesmoke">{{this.title}}<br></h3>
+                  <p>Creator: {{this.author.username}}</p>
+                  <p>Date: {{this.date}}</p>
+                  <p>Upvotes: {{this.voteScore}}</p>
+                </a>
               </li>
-              <li><a href="#"><span>2</span>NASA reveals retro 'worm' logo painted on moon-bound Artemis rocket.</a>
-              </li>
-              <li><a href="#"><span>3</span>NASA reveals retro 'worm' logo painted on moon-bound Artemis rocket.</a>
-              </li>
-              <li><a href="#"><span>4</span>NASA reveals retro 'worm' logo painted on moon-bound Artemis rocket.</a>
-              </li>
+              {{/each}}
 
             </ul>
           </div>
         </ul>
       </li>
-      {{!-- <li class="accordion__item">
-					<a href="#" class="accordion__link">OUR COMMUNITY</a>
-					<ul class="sub-accordion">
-					<div class="forumsContent">        
-        <ul>
-            <li><a href="#"><span>1</span>NASA reveals retro 'worm' logo painted on moon-bound Artemis rocket.</a></li>
-            <li><a href="#"><span>2</span>NASA reveals retro 'worm' logo painted on moon-bound Artemis rocket.</a></li>
-            <li><a href="#"><span>3</span>NASA reveals retro 'worm' logo painted on moon-bound Artemis rocket.</a></li>
-            <li><a href="#"><span>4</span>NASA reveals retro 'worm' logo painted on moon-bound Artemis rocket.</a></li>
-            
+      <li class="accordion__item">
+        <a href="#" class="accordion__link">FAQ</a>
+        <ul class="sub-accordion">
+          <div class="forumsContent">
+            <ul>
+              <a href="posts/category/faq">
+                <h3 style="color: black;">Go to FAQs Page -> </h3>
+              </a>
+              {{#each fposts}}
+              <li>
+                <a href="/posts/post/{{this._id}}">
+                  <h3 style="color:whitesmoke">{{this.title}}<br></h3>
+                  <p>Creator: {{this.author.username}}</p>
+                  <p>Date: {{this.date}}</p>
+                  <p>Upvotes: {{this.voteScore}}</p>
+                </a>
+              </li>
+              {{/each}}
+
+            </ul>
+          </div>
         </ul>
-    </div>
-					</ul>
-				</li> --}}
+      </li>
+      <li class="accordion__item">
+        <a href="#" class="accordion__link">REVIEWS</a>
+        <ul class="sub-accordion">
+          <div class="forumsContent">
+            <ul>
+              <a href="posts/category/review">
+                <h3 style="color: black;">Go to Reviews Page -> </h3>
+              </a>
+              {{#each rposts}}
+              <li>
+                <a href="/posts/post/{{this._id}}">
+                  <h3 style="color:whitesmoke">{{this.title}}<br></h3>
+                  <p>Creator: {{this.author.username}}</p>
+                  <p>Date: {{this.date}}</p>
+                  <p>Upvotes: {{this.voteScore}}</p>
+                </a>
+              </li>
+              {{/each}}
+            </ul>
+          </div>
+        </ul>
+      </li>
     </ul>
 
   </article>
@@ -146,33 +169,28 @@
     <div class="forumcardcolumn">
       <div class="forumcard">
         <h3>Members online</h3>
-
+        <br>
+        {{#each ousers}}
         <p>
-          <li><a href="#0">Forum member name</a></li>
+          <li>
+            {{this.username}}
+          </li>
         </p>
-        <p>
-          <li><a href="#0">Forum member name</a></li>
-        </p>
-        <p>
-          <li><a href="#0">Forum member name</a></li>
-        </p>
-        <p>
-          <li><a href="#0">Forum member name</a></li>
-        </p>
+        {{/each}}
       </div>
     </div>
     <br>
     <br>
     <div class="forumcardcolumn">
       <div class="forumcard">
-        <h4>Forum statistics</h4>
-        <p>Total threads: 10</p>
-        <p>Total members: 10</p>
-        <p>Most Active Member:</p><br>
-        <a href="#">Forum member name</a>
+        <h5>Forum statistics</h5>
+        <br>
+        <p>Total threads: {{plen}}</p>
+        <p>Total members: {{ulen}}</p>
+        <p>Most Active Member: _Anurag</p><br>
       </div>
     </div>
-    
+
   </div>
 </div>
 </div>
