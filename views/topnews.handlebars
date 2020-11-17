@@ -177,13 +177,9 @@
     </div>
 
     <div class="side-headlines">
-        <div><a style="color:white" href="/news/article">Tiny rogue planet is the smallest free-floating exoplanet candidate yet</a></div>
-        <div><a style="color:white" href="/news/article">China is building a new rocket to fly its astronauts on the moon.</a></div>
-        <div><a style="color:white" href="/news/article">Starburst Aerospace announces expansion in India.</a></div>
-        <div><a style="color:white" href="/news/article">HyImpulse hybrid rocket motor roars to life for the first time.</a></div>
-        <div><a style="color:white" href="/news/article">Russia's top space official tried to claim that the planet Venus belongs to the Kremlin.</a></div>
-        <div><a style="color:white" href="/news/article">NASA Looks to Advance 3D Printing Construction Systems for the Moon and Mars.</a></div>
-        <div><a style="color:white" href="/news/article">New Hubble data suggests there is an ingredient missing from current dark matter theories.</a></div>
+        {{#each bn_title}}
+            <div><a style="color:white" href="#">{{this}}</a></div>
+        {{/each}}
     </div>
 </div>
 

@@ -4,6 +4,12 @@ const router = express.Router();
 const Post = require('../models/Post');
 const auth = require('../config/auth')
 const User = require('../models/User')
+const fs = require('fs')
+let rss_bn
+if (fs.existsSync('public/rss/allnewshead.json')) {
+    rss_bn = require('../public/rss/allnewshead.json')
+}
+
 
 // Homepage Route
 router.get('/', (req, res) => {
@@ -36,11 +42,23 @@ router.get('/profile', auth.checkAuthenticated, async(req, res) => {
 router.get('/home', (req, res) => res.render('home', { layout: 'home_layouts' }));
 router.get('/photogallery', (req, res) => res.render('gallery'));
 router.get('/store', (req, res) => res.render('store'));
-router.get('/topnews', (req, res) => res.render('topnews'));
+router.get('/topnews', (req, res) => {
+    let bn_title = []
+    rss_bn.sort(sortpubDate)
+    rss_bn.forEach(bn => bn_title.push(bn.title))
+    res.render('topnews', {
+        bn_title: bn_title.slice(0, 9)
+    })
+})
+
+
 router.get('/help', (req, res) => res.render('help'));
 
 router.get('/news/headlines', async(req, res) => {
-    res.render('news/headlines')
+    rss_bn.sort(sortpubDate)
+    res.render('news/headlines', {
+        rss_bn
+    })
 })
 
 router.get('/news/article', async(req, res) => {
@@ -102,3 +120,9 @@ router.get('/allusers', (req, res) => res.json(users));
 
 
 module.exports = router;
+
+function sortpubDate(a, b) {
+    let adate = new Date(a.pubDate)
+    let bdate = new Date(b.pubDate)
+    return (adate > bdate) ? -1 : ((bdate > adate) ? 1 : 0)
+}
