@@ -21,7 +21,6 @@ const rss = require('./config/rss')
 cron.schedule('* */6 * * *', rss.parse)
 
 
-
 // Mongo DB Config
 const mongoose = require('mongoose')
 mongoose.connect(process.env.DATABASE_URL, {

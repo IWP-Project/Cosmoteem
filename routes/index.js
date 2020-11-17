@@ -6,8 +6,8 @@ const auth = require('../config/auth')
 const User = require('../models/User')
 const fs = require('fs')
 let rss_bn
-if (fs.existsSync('public/rss/nasa-breaking-news.json')) {
-    rss_bn = require('../public/rss/nasa-breaking-news.json')
+if (fs.existsSync('public/rss/allnewshead.json')) {
+    rss_bn = require('../public/rss/allnewshead.json')
 }
 
 
