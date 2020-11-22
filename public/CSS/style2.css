@@ -324,7 +324,7 @@ p {
 footer {
     flex-shrink: 0;
     bottom: 0;
-    background-color: #3f3f3f;
+    background-color: #1d1d1d;
     color: #d5d5d5;
     padding-top: 2rem;
 }
@@ -1669,7 +1669,7 @@ input[type="text"] {
 }
 
 .earth {
-    --d: 300px;
+    --d: 20vw;
     width: var(--d);
     height: var(--d);
     display: inline-block;
@@ -1716,12 +1716,6 @@ input[type="text"] {
     }
 }
 
-@media (max-width: 375px) {
-    .forumsheading .accordion {
-        width: 370px;
-        font-size: 12px;
-    }
-}
 
 @media (max-width: 768px) {
     .flex-container {
