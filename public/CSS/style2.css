@@ -1095,10 +1095,7 @@ article {
     margin: 0px 100px 0px 0px;
 }
 
-.login-body {
-    margin-left: 20%;
-    margin-right: 20%;
-}
+
 
 .login-card {
     justify-content: center;
@@ -1132,11 +1129,7 @@ article {
     float: center;
 }
 
-.signup-body {
-    margin-left: 20%;
-    margin-right: 20%;
-    margin-bottom: 5%;
-}
+
 
 .signup-card {
     justify-content: center;
@@ -1633,11 +1626,15 @@ input[type="text"] {
 }
 
 .loginform input[type="text"]::placeholder {
-    color: grey;
+    color: rgb(59, 59, 59);
 }
 
 .loginform input[type="password"] {
     box-sizing: border-box;
+}
+.loginform input[type="password"]::placeholder{
+    box-sizing: border-box;
+    color: rgb(59, 59, 59);
 }
 
 .signupform input[type="password"],
@@ -1651,13 +1648,20 @@ input[type="text"] {
     font-size: 18px;
     margin-bottom: 5px;
 }
+.signupform input[type="email"]::placeholder{
+    color: rgb(59, 59, 59);
+}
 
 .signupform input[type="text"]::placeholder {
-    color: grey;
+    color: rgb(59, 59, 59);
 }
 
 .signupform input[type="password"] {
     box-sizing: border-box;
+}
+.signupform input[type="password"]::placeholder {
+    box-sizing: border-box;
+    color: rgb(59, 59, 59);
 }
 
 .mainloginform {
