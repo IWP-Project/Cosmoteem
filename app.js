@@ -15,12 +15,18 @@ const flash = require('connect-flash')
 const session = require('express-session')
 const bcrypt = require('bcryptjs')
 const methodOverride = require('method-override')
+const cron = require('node-cron')
+
+const rss = require('./config/rss')
+cron.schedule('* * */6 * *', rss.parse)
+
 
 // Mongo DB Config
 const mongoose = require('mongoose')
 mongoose.connect(process.env.DATABASE_URL, {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    useFindAndModify: false
 })
 const db = mongoose.connection
 db.on('error', error => console.error(error))

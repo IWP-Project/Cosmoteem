@@ -236,7 +236,7 @@ img.toplogo {
 footer {
     flex-shrink: 0;
     bottom: 0;
-    background-color: #3f3f3f;
+    background-color: #272727;
     color: #d5d5d5;
     padding-top: 2rem;
 }
@@ -1238,8 +1238,6 @@ hr {
     font-size: 20px;
 }
 
-.votebox {}
-
 .comment-user {
     background-color: rgba(34, 34, 34, 0.884);
     display: flex;
@@ -1321,6 +1319,8 @@ hr {
     margin: 0px 100px 0px 0px;
 }
 
+.search-dropdown {}
+
 @media (max-width: 768px) {
     .flex-container {
         display: block;
@@ -1334,6 +1334,7 @@ hr {
     .flex-container .base-wrap .base {
         transform: rotate(180deg);
     }
+    
 }
 
 
