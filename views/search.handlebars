@@ -9,18 +9,18 @@
         <h1 style="color:white">Users which we found related to your search.</h1>
         {{#each users}}
         <a href="#">
-            <li style="list-style-type:none; color:rgb(30, 255, 0); font-size: 150%">
+            <li style="list-style-type:none; color:rgb(255, 255, 255); font-size: 4vh">
 
                 <div class="container card" style="overflow:hidden;">
                     <strong>{{this.username}}</strong>
                     <small>{{this.firstName}} {{this.lastName}}</small>
                     <small>{{this.email}}</small>
                     <em>
-                        <small style="color:#333">Joined on : {{this.date}}</small>
+                        <small style="color:rgb(175, 223, 255); font-size: 2vh">Joined on : {{this.date}}</small>
                     </em>
                 </div>
                 <div class="container">
-                    <hr style="background-color: azure;">
+                    <hr style="background-color: rgb(255, 255, 255);">
                 </div>
 
             </li>
@@ -34,14 +34,14 @@
         <h1 style="color:white">Posts which we found related to your search.</h1>
         {{#each posts}}
         <a href="/posts/post/{{this._id}}">
-            <li style="list-style-type:none; color:rgb(30, 255, 0); font-size: 150%">
+            <li style="list-style-type:none; color:rgb(255, 255, 255); font-size: 3vh">
 
                 <div class="container card" style="overflow:hidden;">
                     <strong>{{this.title}}</strong>
-                    <small><textarea disabled readonly maxlength="10" cols="100">{{this.body}}</textarea></small>
-                    <small style="color:#333">{{this.date}}</small>
+                    <small><textarea disabled readonly maxlength="10" cols="100" style="width:100%; color:white;">{{this.body}}</textarea></small>
+                    <small style="color:rgb(175, 223, 255)">{{this.date}}</small>
                     <em>
-                        <small style="color:#333">
+                        <small style="color:rgb(175, 223, 255)">
                             by {{this.author.username}}
                         </small>
                     </em>
@@ -54,7 +54,7 @@
                     </form>
                 </div>
                 <div class="container">
-                    <hr style="background-color: azure;">
+                    <hr style="background-color: rgb(255, 255, 255);">
                 </div>
 
             </li>
