@@ -2,6 +2,7 @@ const { json } = require('body-parser');
 const express = require('express');
 const router = express.Router();
 const Post = require('../models/Post');
+const path = require('path')
 const auth = require('../config/auth')
 const User = require('../models/User')
 const fs = require('fs')
@@ -113,6 +114,9 @@ router.get('/forums', async(req, res) => {
 });
 
 router.get('/planetarium', (req, res) => res.render('planetarium'));
+router.get('/planetarium/projectsolar', (req, res) => {
+    res.render('projectsolar', { layout: 'game_layouts' })
+})
 
 
 // Route to get all users from hard coded database
