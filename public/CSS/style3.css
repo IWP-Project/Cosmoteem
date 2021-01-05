@@ -160,9 +160,9 @@
 
     img.toplogo {
         width: 18vw;
-        height: 5vw;
+        height: 4vw;
     }
-
+   
     .jumbotron {
         padding: 1rem;
         border-radius: 1rem;
@@ -221,11 +221,11 @@
     }
 
     .fa-facebook {
-        color: #3b5998;
+        color: #dfd182;
     }
 
-    .fa-google-plus-g {
-        color: #dd4b39;
+    .fa-twitter {
+        color: #6ec6e9;
     }
 
     .fa-instagram {
@@ -233,7 +233,7 @@
     }
 
     .fa-facebook:hover,
-    .fa-google-plus-g:hover,
+    .fa-twitter:hover,
     .fa-instagram:hover {
         color: #d5d5d5;
     }
@@ -2593,8 +2593,8 @@
         min-height: 0px;       
     }
     img.toplogo {
-        width: 37vw;
-        height: 10vw;
+        width: 27vw;
+        height: 7vw;
     } 
     .container h1{
         font-size: 4vh;
