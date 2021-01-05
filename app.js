@@ -18,7 +18,7 @@ const methodOverride = require('method-override')
 const cron = require('node-cron')
 
 const rss = require('./config/rss')
-cron.schedule('* * */6 * *', rss.parse)
+cron.schedule('0 */12 * * *', rss.parse)
 
 
 // Mongo DB Config
