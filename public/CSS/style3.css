@@ -1638,7 +1638,7 @@
     .carousel2-buttons{
         font-size: 2vh;
         position: inherit;
-        top: 250px;
+        top:280px;
         display: flex;
 
     }
@@ -1807,7 +1807,7 @@
         height: 100%;
         margin-left: 0%;
         margin-right: 0%;   
-        margin-bottom: 10%;       
+        margin-bottom: 20%;       
         
     } 
     .signupform a{
