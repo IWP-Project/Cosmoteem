@@ -3,6 +3,8 @@ if (process.env.NODE_ENV !== 'production') {
     require('dotenv').config()
 }
 
+const sslRedirect = require('heroku-ssl-redirect').default
+
 // Require Express
 const express = require('express')
     // Init express
@@ -18,7 +20,7 @@ const methodOverride = require('method-override')
 const cron = require('node-cron')
 
 const rss = require('./config/rss')
-cron.schedule('* * */6 * *', rss.parse)
+cron.schedule('0 */12 * * *', rss.parse)
 
 
 // Mongo DB Config
@@ -90,12 +92,16 @@ const userRouter = require('./routes/users')
 const postRouter = require('./routes/posts')
 
 // Index Pages Routing
+app.use(sslRedirect())
 app.use('/', indexRouter)
     // User Pages Routing
+app.use(sslRedirect());
 app.use('/users', userRouter)
     // User Pages Routing
+app.use(sslRedirect())
 app.use('/posts', postRouter)
     // API to show userlist
+app.use(sslRedirect())
 app.use('/api/users', require('./routes/api/users'))
 
 // Define Port
