@@ -6,7 +6,13 @@
         "node": "12.x"
     },
     "main": "app.js",
-    "nodemonConfig": { "ext": "js", "ignore": ["public/rss"], "delay": "2" },
+    "nodemonConfig": {
+        "ext": "js",
+        "ignore": [
+            "public/rss"
+        ],
+        "delay": "2"
+    },
     "scripts": {
         "start": "node app.js",
         "dev": "nodemon app.js"
@@ -32,6 +38,7 @@
         "express-handlebars": "^5.1.0",
         "express-session": "^1.17.1",
         "handlebars": "^4.5.0",
+        "heroku-ssl-redirect": "^0.1.1",
         "method-override": "^3.0.0",
         "mongoose": "^5.10.7",
         "mongoose-lean-virtuals": "^0.7.2",
