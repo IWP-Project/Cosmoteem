@@ -32,7 +32,7 @@
         "connect-flash": "^0.1.1",
         "core-util-is": "^1.0.2",
         "ejs": "^3.1.5",
-        "express": "^4.17.1",
+        "express": "^4.18.2",
         "express-ejs-layouts": "^2.5.0",
         "express-flash": "0.0.2",
         "express-handlebars": "^5.1.0",
